@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import TopNavbar from './Pages/Components/topnavbar';
+import Container from 'react-bootstrap/Container';
+import Footer from './Pages/Components/Footer';
+import Profile from './Pages/Components/Profile';
+import Mainarea from './Pages/Components/Mainarea';
+import './Pages/Components/body.css';
+
 
 function App() {
+  document.body.style.display = "flex";
+  document.body.style.flexDirection = "column";
+  document.body.style.height = "100%"
+  document.documentElement.style.height = "100%"
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Container fluid="sm" className="maincontainer">
+        <TopNavbar/>
+        <br/>
+        <Mainarea/>
+      </Container>
+      <Footer/>
     </div>
+    
+
   );
 }
 

@@ -1,0 +1,13 @@
+.sberlogo{
+    width: 100%;
+    height: auto;
+}
+
+@media only screen and (max-width:768px) {
+    .sberlogo {
+        width: 100%;
+    }
+    .navbar-brand{
+        width: 60%;
+    }
+  }

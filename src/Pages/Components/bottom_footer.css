@@ -1,0 +1,44 @@
+.bottom_footer{
+    background-color: black;
+    color: white;
+    flex-shrink: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display:inline-flex;
+
+    
+}
+
+.sber_phone {
+    font-size: 24px;
+}
+
+.footer_phone_info {
+    color: #878B90;
+    font-size: 13px;
+}
+
+.footer_email {
+    font-size: 24px;
+}
+
+.address_field * {
+    color: #979797;
+    margin: 0px;
+}
+
+@media only screen and (max-width:768px) {
+    .sber_phone {
+        font-size: 12px;
+    }
+    .footer_phone_info {
+        font-size: 9px;
+    }
+    .footer_email {
+        font-size: 12px;
+    }
+    .address_field * {
+        font-size: 9px;
+    }
+}

@@ -1,0 +1,45 @@
+
+
+.user_photo{
+    max-width: 50%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    
+}
+
+.card_user_name{
+    text-align: center;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    background: #21A038;
+    color: white;
+    text-align: center;
+    font: 13px Arial, sans-serif;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.orders{
+    display: flex;
+    justify-content: space-between;
+}
+
+.orders > p{
+    margin: 0px;
+}
+
+@media only screen and (max-width:768px) {
+    .innercard {
+        padding: 0;
+    }
+}
