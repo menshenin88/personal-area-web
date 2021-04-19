@@ -1,0 +1,46 @@
+.shipment-course-entry{
+    overflow: hidden;
+    position: relative;
+}
+
+.course-left {
+    float: left;
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, 
+	                              transparent 0%, 
+	                              transparent calc(50% - 0.81px), 
+	                              limegreen calc(50% - 0.8px), 
+	                              limegreen calc(50% + 0.8px), 
+	                              transparent calc(50% + 0.81px), 
+	                              transparent 100%);
+}
+
+.course-text {
+    overflow: hidden;
+    min-height: 100px;
+    padding: 0.4rem;
+    margin-bottom: 2rem auto;
+    margin-left: 100px;
+}
+
+.course-header {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.course-status {
+    margin-bottom: 4px;
+}
+
+.course-left-circle {
+    text-align: center;
+    background: white;
+    border: 2px solid limegreen;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: table;
+    margin: 0 auto;
+}

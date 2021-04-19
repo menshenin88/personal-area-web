@@ -3,33 +3,47 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Logo from "../static/logo.svg"
 import './topnavbar.css'
+import PropTypes from "prop-types";
+import { withRouter } from "react-router";
+import React from 'react';
 
 
-function TopNavbar (props) {
-    return (
-        <div id="app" className="Navbar-container">
-            <Navbar bg="light" expand="xl">
-                <Navbar.Brand href="#home">
-                    <img
-                        src={Logo}
-                        className="sberlogo"
-                        alt={process.env.REACT_APP_SITE_NAME}
-                    />
-                </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="mr-auto">
-                            <Nav.Link href="#home">Заказы</Nav.Link>
-                            <Nav.Link href="#link">Мои данные</Nav.Link>
-                            <Nav.Link href="#link">Претензии</Nav.Link>
-                        </Nav>
-                        <Form inline>
-                            <Nav.Link href="#link">Иван Иванов</Nav.Link>
-                        </Form>
-                    </Navbar.Collapse>
-            </Navbar>
-        </div>
-            )
+class TopNavbar extends React.Component {
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+      }; 
+
+    render() {
+        const { location } = this.props;
+
+        return (
+            <div id="app" className="Navbar-container">
+                <Navbar bg="light" expand="xl">
+                    <Navbar.Brand href="/login">
+                        <img
+                            src={Logo}
+                            className="sberlogo"
+                            alt={process.env.REACT_APP_SITE_NAME}
+                            
+                        />
+                    </Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="mr-auto" activeKey={location.pathname}>
+                                <Nav.Link href="/tracking">Заказы</Nav.Link>
+                                <Nav.Link href="/settings">Мои данные</Nav.Link>
+                                <Nav.Link href="/dashboard">Претензии</Nav.Link>
+                            </Nav>
+                            <Form inline>
+                                <Nav.Link href="#link">Иван Иванов</Nav.Link>
+                            </Form>
+                        </Navbar.Collapse>
+                </Navbar>
+            </div>
+        )
+    }
 }
 
-export default TopNavbar
+export default withRouter(TopNavbar)

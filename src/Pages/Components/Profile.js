@@ -1,6 +1,5 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import ListGroupItem from 'react-bootstrap/ListGroup';
 import user_photo from "../static/kyle.jpg";
 import Image from "react-bootstrap/Image"
 import './Profile.css'
