@@ -17,6 +17,10 @@
 	                              transparent 100%);
 }
 
+.first {
+    background: transparent;
+}
+
 .course-text {
     overflow: hidden;
     min-height: 100px;
@@ -43,4 +47,8 @@
     height: 30px;
     display: table;
     margin: 0 auto;
+}
+
+.course-left-circle.final {
+    background: limegreen;
 }

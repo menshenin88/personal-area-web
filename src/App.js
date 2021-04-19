@@ -15,10 +15,6 @@ import {
 
 
 function App() {
-  document.body.style.display = "flex";
-  document.body.style.flexDirection = "column";
-  document.body.style.height = "100%"
-  document.documentElement.style.height = "100%"
   return (
     <BrowserRouter>
       <Container fluid="sm" className="maincontainer" >

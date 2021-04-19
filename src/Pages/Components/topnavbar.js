@@ -21,12 +21,11 @@ class TopNavbar extends React.Component {
         return (
             <div id="app" className="Navbar-container">
                 <Navbar bg="light" expand="xl">
-                    <Navbar.Brand href="/login">
+                    <Navbar.Brand className="logo-container" href="/login">
                         <img
                             src={Logo}
                             className="sberlogo"
-                            alt={process.env.REACT_APP_SITE_NAME}
-                            
+                            alt={process.env.REACT_APP_SITE_NAME}   
                         />
                     </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
