@@ -16,6 +16,23 @@
     text-align: center;
 }
 
+.card-link {
+    color: rgba(0,0,0,.5);
+}
+
+.card-link:hover {
+    color: rgba(0,0,0,.7);
+}
+
+.card-link-active {
+    color: rgba(0,0,0,1);
+}
+
+.card-link-active:hover {
+    color: rgba(0,0,0,.7);
+    text-decoration: none;
+}
+
 .numberCircle {
     border-radius: 50%;
     width: 20px;

@@ -32,7 +32,7 @@ class TopNavbar extends React.Component {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto" activeKey={location.pathname}>
                                 <Nav.Link href="/tracking">Поиск заказов</Nav.Link>
-                                <Nav.Link href="/dashboard">Мои данные</Nav.Link>
+                                <Nav.Link href="/dashboard/shipments">Мои данные</Nav.Link>
                             </Nav>
                             <Form inline>
                                 <Nav.Link href="#link">Иван Иванов</Nav.Link>

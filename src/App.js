@@ -7,12 +7,7 @@ import Mainarea from './Pages/Components/Dashboard/Mainarea';
 import './Pages/Components/body.css';
 import Tracking from './Pages/Components/Tracking/Tracking'
 import Login from './Pages/Login/login';
-import SberIdLoginForm from './Pages/Login/Components/LoginForm/LoginForm'
-import {
-  BrowserRouter,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 function App() {
@@ -24,13 +19,13 @@ function App() {
               <Route exact path="/login">
                 <Login />
               </Route>
-              <Route exact path="/sign-in">
-                  <Login />
+              <Route path="/sign-in">
+                <Login />
               </Route>
               <Route path="/tracking">
                 <Tracking></Tracking>
               </Route>
-              <Route path="/dashboard">
+              <Route path="/dashboard/shipments">
                 <br/>
                 <Mainarea/>
               </Route>
