@@ -1,4 +1,8 @@
-
+.innercard.card{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
+}
 
 .user_photo{
     max-width: 50%;

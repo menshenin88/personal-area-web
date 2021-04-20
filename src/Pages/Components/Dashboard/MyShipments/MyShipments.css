@@ -1,4 +1,4 @@
-.settings-form {
+.my-shipments-form {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -12,12 +12,7 @@
     box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
 }
 
-.settings-header{
+.shipments-header{
     text-align: center;
     color: #21A038; 
-}
-
-.submit-button.btn.btn-primary{
-    margin: 4px 4px 4px 0px;
-    background: #21A038;
 }

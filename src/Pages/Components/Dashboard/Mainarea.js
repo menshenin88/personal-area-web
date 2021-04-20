@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { withRouter } from "react-router";
 import React, { Component } from 'react';
+import MyShipments from './MyShipments/MyShipments';
 
 class Mainarea extends Component{
     static propTypes = {
@@ -41,7 +42,7 @@ class Mainarea extends Component{
                                 </Switch>
                                 <Switch>
                                     <Route path="/dashboard/shipments">
-                                        <h1>Здесь заказы</h1>
+                                        <MyShipments />
                                     </Route>  
                                 </Switch>
                             </Col>

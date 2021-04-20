@@ -7,8 +7,8 @@ const Dispute = (props) => {
     const [key, setKey] = useState('home');
 
     return(
-        <div>
-            <h3>Споры</h3>
+        <div className="dispute-form">
+            <h3 className="dispute-header">Споры</h3>
             <Tabs
                 id="controlled-tab-example"
                 activeKey={key}
