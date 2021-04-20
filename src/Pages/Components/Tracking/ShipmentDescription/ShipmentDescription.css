@@ -20,3 +20,9 @@
 .shipment-description-number {
     font-weight: 700;
 }
+
+.shipment-button.btn.btn-primary {
+    background: #21a038;
+    color: white;
+    border: none;
+}

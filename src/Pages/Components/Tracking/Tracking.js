@@ -70,7 +70,7 @@ class Tracking extends Component {
                 <InputGroup.Prepend>
                     <InputGroup.Text>Введите трек-номер</InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl as="textarea" aria-label="With textarea" />
+                <FormControl aria-label="With textarea" />
             </InputGroup>
             {this.state.hasBeenSearched ? 
               <ShipmentDescription status={this.state.trackingnumber[0].status} number={this.state.trackingnumber[0].number}/>

@@ -11,8 +11,8 @@
     background: linear-gradient(to right, 
 	                              transparent 0%, 
 	                              transparent calc(50% - 0.81px), 
-	                              limegreen calc(50% - 0.8px), 
-	                              limegreen calc(50% + 0.8px), 
+	                              #21a038 calc(50% - 0.8px), 
+	                              #21a038 calc(50% + 0.8px), 
 	                              transparent calc(50% + 0.81px), 
 	                              transparent 100%);
 }
@@ -41,7 +41,7 @@
 .course-left-circle {
     text-align: center;
     background: white;
-    border: 2px solid limegreen;
+    border: 2px solid #21a038;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -50,5 +50,5 @@
 }
 
 .course-left-circle.final {
-    background: limegreen;
+    background: #21a038;
 }

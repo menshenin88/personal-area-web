@@ -1,5 +1,6 @@
 import './ShipmentDescription.css';
-import {Link} from 'react-router-dom';
+import Button from 'react-bootstrap/Button'
+
 
 const ShipmentDescription = (props) => {
     const statusChecker = (s) => {
@@ -17,7 +18,8 @@ const ShipmentDescription = (props) => {
             <div className="shipment-description-text">
                 <p className='shipment-description-number'>Номер Вашей посылки: {props.number}</p>
                 <p className='shipment-description-status'>Текущий статус: {statusChecker(props.status)}</p>
-                <p className="shipment-tax">Пошлина: <Link to="#/">оплатить</Link></p>
+                <Button className="shipment-button" variant="primary">Оплатить пошлину</Button>
+                <Button className="shipment-button" >Добавить в мои заказы</Button>
             </div>
         </div>
     )

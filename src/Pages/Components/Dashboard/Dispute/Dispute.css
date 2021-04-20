@@ -1,0 +1,62 @@
+.nav-tabs .nav-link{
+    text-align: left;
+    padding: 0px 0px;
+    color:#00000080;
+    height: 35px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-width: 40%;
+    max-width: 50%
+}
+.nav-tabs .nav-link:hover {
+    border: none;
+    color: #212529;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 35px;
+}
+
+.nav-tabs .nav-link:focus {
+    border: none;
+    color: #212529;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 35px;
+}
+
+.nav-tabs .nav-link.active{
+    text-align: left !important;
+    color: black !important;
+    border: none !important;
+}
+
+.nav-tabs {
+    border: none !important;
+}
+
+
+.active{
+    text-align: left !important;
+    padding: 8px 0px;
+}
+
+.disputetext.active{
+    text-align: left;
+    border-bottom: 2px solid #21A038;
+    width: fit-content;
+}
+.disputetext{
+    width: fit-content; 
+    padding-top: 8px;
+}
+
+.dispute{
+    height: 100px;
+    background-color:lightsteelblue;
+}
+
+.dispute > p{
+    font-size: 16px;
+    text-align: center;
+}

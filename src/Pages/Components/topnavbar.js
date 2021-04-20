@@ -31,9 +31,8 @@ class TopNavbar extends React.Component {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto" activeKey={location.pathname}>
-                                <Nav.Link href="/tracking">Заказы</Nav.Link>
-                                <Nav.Link href="/settings">Мои данные</Nav.Link>
-                                <Nav.Link href="/dashboard">Претензии</Nav.Link>
+                                <Nav.Link href="/tracking">Поиск заказов</Nav.Link>
+                                <Nav.Link href="/dashboard">Мои данные</Nav.Link>
                             </Nav>
                             <Form inline>
                                 <Nav.Link href="#link">Иван Иванов</Nav.Link>
