@@ -20,11 +20,11 @@ class App extends Component {
   }
 
   onNumberAdd = (num) => {
-    if (this.state.mynumbers.filter(e => e.number === num).length > 0) {
+    if (this.state.mynumbers.filter(e => e.number === num.number).length > 0) {
       console.log('Number already exists!')
     } else {
       this.setState(previousState => ({
-        mynumbers: [...previousState.mynumbers, {number: num}]
+        mynumbers: [...previousState.mynumbers, {number: num.number, time: num.time, location: num.location, status: num.status, tax: num.tax}]
       }));
       console.log('Number added!')
     }

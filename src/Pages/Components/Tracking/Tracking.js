@@ -13,14 +13,14 @@ class Tracking extends Component {
 
   state = {
     trackingnumber: [ 
-      {number: "001", time: new Date('2021-03-03'), location: 'Moscow', status: 'final'},
-      {number: "001", time: new Date('2021-03-02'), location: 'Zwenigorod', status: ''},
-      {number: "001", time: new Date('2021-03-01'), location: 'Irkutsk', status: ''},
-      {number: "001", time: new Date('2021-03-01'), location: 'Beijing', status: 'first'},
-      {number: "002", time: new Date('2021-03-03'), location: 'Rotterdam', status: 'final'},
-      {number: "002", time: new Date('2021-03-02'), location: 'Murmansk', status: ''},
-      {number: "002", time: new Date('2021-03-01'), location: 'Dudinka', status: ''},
-      {number: "002", time: new Date('2021-03-01'), location: 'Norilsk', status: 'first'}
+      {number: "001", time: new Date('2021-03-03'), location: 'Moscow', status: 'final', tax: 'paid'},
+      {number: "001", time: new Date('2021-03-02'), location: 'Zwenigorod', status: '', tax: 'paid'},
+      {number: "001", time: new Date('2021-03-01'), location: 'Irkutsk', status: '', tax: 'paid'},
+      {number: "001", time: new Date('2021-03-01'), location: 'Beijing', status: 'first', tax: 'paid'},
+      {number: "002", time: new Date('2021-03-03'), location: 'Rotterdam', status: 'final', tax: ''},
+      {number: "002", time: new Date('2021-03-02'), location: 'Murmansk', status: '', tax: ''},
+      {number: "002", time: new Date('2021-03-01'), location: 'Dudinka', status: '', tax: ''},
+      {number: "002", time: new Date('2021-03-01'), location: 'Norilsk', status: 'first', tax: ''}
     ],
     hasBeenSearched: false
   };
@@ -36,14 +36,14 @@ class Tracking extends Component {
       this.setState({
         hasBeenSearched: false,
         trackingnumber: [
-          {number: "001", time: new Date('2021-03-03'), location: 'Moscow', status: 'final'},
-          {number: "001", time: new Date('2021-03-02'), location: 'Zwenigorod', status: ''},
-          {number: "001", time: new Date('2021-03-01'), location: 'Irkutsk', status: ''},
-          {number: "001", time: new Date('2021-03-01'), location: 'Beijing', status: 'first'},
-          {number: "002", time: new Date('2021-03-03'), location: 'Rotterdam', status: 'final'},
-          {number: "002", time: new Date('2021-03-02'), location: 'Murmansk', status: ''},
-          {number: "002", time: new Date('2021-03-01'), location: 'Dudinka', status: ''},
-          {number: "002", time: new Date('2021-03-01'), location: 'Norilsk', status: 'first'}
+          {number: "001", time: new Date('2021-03-03'), location: 'Moscow', status: 'final', tax: 'paid'},
+          {number: "001", time: new Date('2021-03-02'), location: 'Zwenigorod', status: '', tax: 'paid'},
+          {number: "001", time: new Date('2021-03-01'), location: 'Irkutsk', status: '', tax: 'paid'},
+          {number: "001", time: new Date('2021-03-01'), location: 'Beijing', status: 'first', tax: 'paid'},
+          {number: "002", time: new Date('2021-03-03'), location: 'Rotterdam', status: 'final', tax: ''},
+          {number: "002", time: new Date('2021-03-02'), location: 'Murmansk', status: '', tax: ''},
+          {number: "002", time: new Date('2021-03-01'), location: 'Dudinka', status: '', tax: ''},
+          {number: "002", time: new Date('2021-03-01'), location: 'Norilsk', status: 'first', tax: ''}
         ]
       })}
   };
@@ -67,8 +67,8 @@ class Tracking extends Component {
     )
   };
 
-  addNumberHandler = (number) => {
-    this.props.onNumberAdd(number)
+  addNumberHandler = (data) => {
+    this.props.onNumberAdd(data)
   }
 
   render(){
@@ -81,7 +81,12 @@ class Tracking extends Component {
                 <FormControl aria-label="With textarea" />
             </InputGroup>
             {this.state.hasBeenSearched ? 
-              <ShipmentDescription onNumberAdd={this.addNumberHandler} status={this.state.trackingnumber[0].status} number={this.state.trackingnumber[0].number}/>
+              <ShipmentDescription 
+                onNumberAdd={this.addNumberHandler} 
+                status={this.state.trackingnumber[0].status} 
+                number={this.state.trackingnumber[0].number}
+                tax={this.state.trackingnumber[0].tax}
+                />
               : <div></div>
             } 
             {this.state.hasBeenSearched ? <this.ShowTracking /> : <div></div>}             

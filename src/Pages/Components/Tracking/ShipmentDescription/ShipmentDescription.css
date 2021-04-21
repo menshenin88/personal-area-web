@@ -10,6 +10,7 @@
     padding: 0.4rem;
     margin-bottom: 2rem auto;
     margin-left: 100px;
+    width: 100%
 }
 
 .shipment-description-text > * {
@@ -26,3 +27,6 @@
     color: white;
     border: none;
 }
+    .disabled{
+        background: #00971c;
+    }
