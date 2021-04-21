@@ -1,7 +1,7 @@
-body{
+body {
     background-color: teal;
 }
 
-.maincontainer{
-    flex: 1 0 auto;
+.maincontainer {
+    min-height: calc(100vh - 150px);
 }

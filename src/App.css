@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  height: calc(100% - 240px);
+  height: 100%;
 }
 
 .App {
