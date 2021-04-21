@@ -1,13 +1,8 @@
 .bottom_footer{
     background-color: black;
     color: white;
-    flex-shrink: 0;
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    display:inline-flex;
-
-    
+    position: relative;
 }
 
 .sber_phone {

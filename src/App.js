@@ -33,25 +33,27 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Container fluid="sm" className="maincontainer" >
-          <TopNavbar/>
-              <Switch>
-                <Route exact path="/login">
-                  <Login />
-                </Route>
-                <Route path="/sign-in">
-                  <Login />
-                </Route>
-                <Route path="/tracking">
-                  <Tracking onNumberAdd={this.onNumberAdd}></Tracking>
-                </Route>
-                <Route path="/dashboard/shipments">
-                  <br/>
-                  <Mainarea myNumbers={this.state.mynumbers}/>
-                </Route>
-              </Switch>       
-        </Container>
-        <Footer/>
+        <div className="wrapper">
+          <Container fluid="sm" className="maincontainer" >
+            <TopNavbar/>
+                <Switch>
+                  <Route exact path="/login">
+                    <Login />
+                  </Route>
+                  <Route path="/sign-in">
+                    <Login />
+                  </Route>
+                  <Route path="/tracking">
+                    <Tracking onNumberAdd={this.onNumberAdd}></Tracking>
+                  </Route>
+                  <Route path="/dashboard/shipments">
+                    <br/>
+                    <Mainarea myNumbers={this.state.mynumbers}/>
+                  </Route>
+                </Switch>       
+          </Container>
+          <Footer/>
+        </div>
       </BrowserRouter>
     );
   }

@@ -5,8 +5,8 @@ import './bottom_footer.css'
 
 function Footer(props) {
     return (
-        <footer>
-            <div className='bottom_footer'>
+        <footer className='bottom_footer'>
+            <div>
                 <Container fluid="sm">
                     <Row>
                     <Col sm={8}>
