@@ -3,7 +3,6 @@ import done_photo from "../../../static/done.svg"
 
 const ShipmentEntry = (props) => {
     const statusChecker = (s) => {
-        console.log(props.status)
         if (s === 'final') {
             return 'Ваша посылка доставлена по адресу'
         } else if (s === 'first') {

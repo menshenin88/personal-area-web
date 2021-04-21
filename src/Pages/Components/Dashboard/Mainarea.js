@@ -42,7 +42,7 @@ class Mainarea extends Component{
                                 </Switch>
                                 <Switch>
                                     <Route path="/dashboard/shipments">
-                                        <MyShipments />
+                                        <MyShipments myNumbers={this.props.myNumbers}/>
                                     </Route>  
                                 </Switch>
                             </Col>

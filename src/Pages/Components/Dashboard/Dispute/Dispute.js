@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Nav from 'react-bootstrap/Nav';
 import { Tab, Tabs } from 'react-bootstrap'
 import './Dispute.css';
 

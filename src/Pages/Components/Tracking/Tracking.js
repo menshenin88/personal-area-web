@@ -6,6 +6,11 @@ import ShipmentEntry from './ShipmentEntry/ShipmentEntry';
 import ShipmentDescription from './ShipmentDescription/ShipmentDescription';
 
 class Tracking extends Component {
+  constructor(props) {
+    super(props);
+    this.addNumberHandler = this.addNumberHandler.bind(this);
+}
+
   state = {
     trackingnumber: [ 
       {number: "001", time: new Date('2021-03-03'), location: 'Moscow', status: 'final'},
@@ -23,7 +28,6 @@ class Tracking extends Component {
   TrackingStatusHandler = (event) => {
     if (this.state.trackingnumber.some(e => e.number === event.target.value)) {
       const arrayNumber = this.state.trackingnumber.filter(e => e.number === event.target.value)
-      console.log(arrayNumber)
       this.setState({
         hasBeenSearched: true,
         trackingnumber: arrayNumber
@@ -63,6 +67,10 @@ class Tracking extends Component {
     )
   };
 
+  addNumberHandler = (number) => {
+    this.props.onNumberAdd(number)
+  }
+
   render(){
       return (
         <div className="tracking_area">
@@ -73,7 +81,7 @@ class Tracking extends Component {
                 <FormControl aria-label="With textarea" />
             </InputGroup>
             {this.state.hasBeenSearched ? 
-              <ShipmentDescription status={this.state.trackingnumber[0].status} number={this.state.trackingnumber[0].number}/>
+              <ShipmentDescription onNumberAdd={this.addNumberHandler} status={this.state.trackingnumber[0].status} number={this.state.trackingnumber[0].number}/>
               : <div></div>
             } 
             {this.state.hasBeenSearched ? <this.ShowTracking /> : <div></div>}             
