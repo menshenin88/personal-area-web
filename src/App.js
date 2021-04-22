@@ -30,6 +30,11 @@ class App extends Component {
     }
   };
 
+  deleteNumber = (data) => {
+    const arrayNumber = this.state.mynumbers.filter(e => e.number !== data)
+    this.setState({mynumbers: arrayNumber})
+  };
+
   render() {
     return (
       <BrowserRouter>
@@ -48,7 +53,7 @@ class App extends Component {
                   </Route>
                   <Route path="/dashboard/shipments">
                     <br/>
-                    <Mainarea myNumbers={this.state.mynumbers}/>
+                    <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber}/>
                   </Route>
                 </Switch>       
           </Container>

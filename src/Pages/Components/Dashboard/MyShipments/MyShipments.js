@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, { Component } from 'react';
 import './MyShipments.css';
 import ShipmentDescription from '../../Tracking/ShipmentDescription/ShipmentDescription';
 
@@ -13,6 +13,10 @@ class MyShipments extends Component {
         console.log(this.props.myNumbers)
     };
 
+    deleteNumber = (data) => {
+        this.props.deleteNumber(data)
+    };
+
     CheckNumbers = () => {
         if (this.props.myNumbers.length > 0){
             return (
@@ -23,6 +27,7 @@ class MyShipments extends Component {
                                 status={n.status}
                                 number={n.number} 
                                 tax={n.tax}
+                                deleteNumber={this.deleteNumber}
                             />
                         </div>
 
@@ -30,12 +35,11 @@ class MyShipments extends Component {
                 </div>
 
             )
-        } else {
-            return (
-                <p>У вас нет заказов<button onClick={this.showNumbers}></button></p>
-            )
-        }
-    }
+        } 
+        return (
+            <p>У вас нет заказов<button onClick={this.showNumbers}></button></p>
+        )
+    };
     render(){
         return(
             <div className="my-shipments-form">

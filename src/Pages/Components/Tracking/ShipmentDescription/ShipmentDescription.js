@@ -4,17 +4,13 @@ import React, { Component } from 'react';
 
 
 class ShipmentDescription extends Component {
-    constructor(props) {
-        super(props);
-        this.handleNumberAdd = this.handleNumberAdd.bind(this);
-        this.state ={
-            onMyShipments: true
-        };
-    };
-
     handleNumberAdd = () => {
         this.props.onNumberAdd(this.props)
     };
+
+    deleteNumber = () => {
+        this.props.deleteNumber(this.props.number)
+    }
 
     statusChecker = (s) => {
         if (s === 'final') {
@@ -35,10 +31,14 @@ class ShipmentDescription extends Component {
                         <Button className="shipment-button" variant="primary">Оплатить пошлину</Button> : 
                         <Button className="shipment-button disabled" variant="primary" disabled>Пошлина оплачена</Button>
                     }
-                    {this.state.onMyShipments ? 
+                    {this.props.onSearch ? 
                         <Button onClick={this.handleNumberAdd} className="shipment-button" >Добавить в мои заказы</Button> :
-                        <Button className="shipment-button delete" variant="primary">Удалить из заказов</Button>
-                    }  
+                        <Button onClick={this.deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button>
+                    }
+                    {!this.props.onSearch ?
+                        <Button onClick={this.deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button> :
+                        <div></div>
+                    } 
                 </div>
             </div>
         )

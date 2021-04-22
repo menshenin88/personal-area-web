@@ -6,11 +6,6 @@ import ShipmentEntry from './ShipmentEntry/ShipmentEntry';
 import ShipmentDescription from './ShipmentDescription/ShipmentDescription';
 
 class Tracking extends Component {
-  constructor(props) {
-    super(props);
-    this.addNumberHandler = this.addNumberHandler.bind(this);
-}
-
   state = {
     trackingnumber: [ 
       {number: "001", time: new Date('2021-03-03'), location: 'Moscow', status: 'final', tax: 'paid'},
@@ -22,7 +17,8 @@ class Tracking extends Component {
       {number: "002", time: new Date('2021-03-01'), location: 'Dudinka', status: '', tax: ''},
       {number: "002", time: new Date('2021-03-01'), location: 'Norilsk', status: 'first', tax: ''}
     ],
-    hasBeenSearched: false
+    hasBeenSearched: false,
+    onSearch: true
   };
 
   TrackingStatusHandler = (event) => {
@@ -86,10 +82,10 @@ class Tracking extends Component {
                 status={this.state.trackingnumber[0].status} 
                 number={this.state.trackingnumber[0].number}
                 tax={this.state.trackingnumber[0].tax}
+                onSearch={this.state.onSearch}
                 />
-              : <div></div>
-            } 
-            {this.state.hasBeenSearched ? <this.ShowTracking /> : <div></div>}             
+            : <div></div>}
+            {this.state.hasBeenSearched ? <this.ShowTracking /> :<div></div>}          
         </div>
     )
   }

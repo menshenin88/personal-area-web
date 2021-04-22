@@ -16,7 +16,10 @@ class Mainarea extends Component{
         match: PropTypes.object.isRequired,
         location: PropTypes.object.isRequired,
         history: PropTypes.object.isRequired
-    }; 
+    };
+    deleteNumber = (data) => {
+        this.props.deleteNumber(data)
+    }
 
     render(){
         const { location } = this.props;
@@ -42,7 +45,7 @@ class Mainarea extends Component{
                                 </Switch>
                                 <Switch>
                                     <Route path="/dashboard/shipments">
-                                        <MyShipments myNumbers={this.props.myNumbers}/>
+                                        <MyShipments myNumbers={this.props.myNumbers} deleteNumber={this.deleteNumber}/>
                                     </Route>  
                                 </Switch>
                             </Col>
