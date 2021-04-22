@@ -1,5 +1,6 @@
 .my-shipments-form {
     position: relative;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -15,4 +16,15 @@
 .shipments-header{
     text-align: center;
     color: #21A038; 
+}
+
+.shipment-description-wrapper{
+    border-bottom: 1px solid #21a038;
+}
+
+.shipment-description-wrapper-last{
+    border-bottom: none;
+}
+.no-orders-message {
+    text-align: center;
 }

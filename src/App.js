@@ -11,14 +11,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.onNumberAdd = this.onNumberAdd.bind(this);
-    this.state = {
+  state = {
       mynumbers:[],
       allnumbers:[]
-    }
-  }
+    };
 
   onNumberAdd = (num) => {
     if (this.state.mynumbers.filter(e => e.number === num.number).length > 0) {
@@ -37,17 +33,15 @@ class App extends Component {
           allnumbers: [...previousState.allnumbers, n]
         }))
       ))
-      //this.state.allnumbers.push(num.details)
       console.log('Number added!')   
     }
-    //this.setState({allnumbers: num.details})
-    console.log(this.state.allnumbers)
-    console.log(this.state.mynumbers)
   };
 
   deleteNumber = (data) => {
-    const arrayNumber = this.state.mynumbers.filter(e => e.number !== data)
-    this.setState({mynumbers: arrayNumber})
+    const myn = this.state.mynumbers.filter(e => e.number !== data)
+    this.setState({mynumbers: myn})
+    const alln = this.state.allnumbers.filter(e => e.number !== data)
+    this.setState({allnumbers: alln})
   };
 
   render() {

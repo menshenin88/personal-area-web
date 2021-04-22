@@ -7,23 +7,16 @@ class MyShipments extends Component {
         onMyShipments: false
     };
 
-    showNumbers = () => {
-        console.log(this.props.allNumbers.length)
-        console.log(this.props.allNumbers)
-    };
-
     deleteNumber = (data) => {
         this.props.deleteNumber(data)
     };
-
-
 
     CheckNumbers = () => {
         if (this.props.myNumbers.length > 0){
             return (
                 <div>
-                    {this.props.myNumbers.map((n, index) =>
-                        <div key={index} className="shipment-description-wrapper">
+                    {this.props.myNumbers.map((n, i) =>
+                        <div key={i} className={(i !== (this.props.myNumbers.length - 1)) ? "shipment-description-wrapper" : "shipment-description-wrapper-last"}>
                             <ShipmentDescription
                                 details={this.props.allNumbers.filter(e => e.number === n.number)} 
                                 status={n.status}
@@ -39,7 +32,7 @@ class MyShipments extends Component {
             )
         } 
         return (
-            <p>У вас нет заказов<button onClick={this.showNumbers}></button></p>
+            <p className="no-orders-message">У вас нет заказов</p>
         )
     };
 
@@ -51,8 +44,7 @@ class MyShipments extends Component {
                 <this.CheckNumbers />
             </div>
         )
-    }
-
+    };
 };
 
 export default MyShipments;

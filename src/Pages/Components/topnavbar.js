@@ -43,6 +43,6 @@ class TopNavbar extends React.Component {
             </div>
         )
     }
-}
+};
 
 export default withRouter(TopNavbar)

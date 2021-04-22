@@ -5,18 +5,18 @@ const SberIdLoginForm = () => {
     return (
         <div>
             <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label>Ваш email</Form.Label>
+                <Form.Control type="email" placeholder="Введите email" />
                 <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
+                    Мы не не передаем данные третьим лицам
                 </Form.Text>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Label>Пароль</Form.Label>
+                <Form.Control type="password" placeholder="Введите пароль" />
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
+                <Form.Check type="checkbox" label="Выйти" />
             </Form.Group>
             <Button variant="secondary" type="submit" block>
                 Войти

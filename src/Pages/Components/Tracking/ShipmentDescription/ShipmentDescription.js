@@ -2,6 +2,7 @@ import './ShipmentDescription.css';
 import Button from 'react-bootstrap/Button'
 import React, { Component } from 'react';
 import ShipmentEntry from '../ShipmentEntry/ShipmentEntry'
+import post_icon from "../../../../Pages/static/post-icon.svg";
 
 
 class ShipmentDescription extends Component {
@@ -39,7 +40,6 @@ class ShipmentDescription extends Component {
     ShowTracking =() => {
         return (
           <div>
-            <br/>
             {this.props.details.map((n, index) => (
               <ShipmentEntry 
                 circleStyleName={n.status} 
@@ -58,23 +58,32 @@ class ShipmentDescription extends Component {
     render() {
         return (
             <div className="shipment-description">
-                <div className="shipment-description-text">
-                    <p className='shipment-description-number'>Номер Вашей посылки: {this.props.number}</p>
-                    <p className='shipment-description-status'>Текущий статус: {this.statusChecker(this.props.status)}</p>
-                    {this.props.tax !== "paid" ? 
-                        <Button className="shipment-button" variant="primary">Оплатить пошлину</Button> : 
-                        <Button className="shipment-button disabled" variant="primary" disabled>Пошлина оплачена</Button>
-                    }
-                    {this.props.onSearch ? 
-                        <Button onClick={this.handleNumberAdd} className="shipment-button" >Добавить в мои заказы</Button> :
-                        <Button onClick={this.deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button>
-                    }
-                    {!this.props.onSearch ?
-                        <Button onClick={this.showDetails} className="shipment-button delete" variant="primary">Показать детали</Button> :
-                        <div></div>
-                    }                   
+                <div>
+                    <div className="icon-wrapper">
+                        <img src={ post_icon } className="icon-green" alt=""/>
+                    </div>
+                    <div className="shipment-description-text">
+                        <p className='shipment-description-number'>Номер Вашей посылки: {this.props.number}</p>
+                        <p className='shipment-description-status'>Текущий статус: {this.statusChecker(this.props.status)}</p>
+                        {this.props.tax !== "paid" ? 
+                            <Button className="shipment-button" variant="primary">Оплатить пошлину</Button> : 
+                            <Button className="shipment-button disabled" variant="primary" disabled>Пошлина оплачена</Button>
+                        }
+                        {this.props.onSearch ? 
+                            <Button onClick={this.handleNumberAdd} className="shipment-button" >Добавить в мои заказы</Button> :
+                            <Button onClick={this.deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button>
+                        }
+                        {!this.props.onSearch ?
+                            <Button onClick={this.showDetails} className="shipment-button delete" variant="primary">{ !this.state.clickForDetails ? "Показать детали" : "Скрыть детали"}</Button> :
+                            <div></div>
+                        }                   
+                    </div>
                 </div>
-                {this.state.clickForDetails ? <this.ShowTracking /> : <div></div>}
+
+                <div>
+                    {this.state.clickForDetails ? <this.ShowTracking /> : <div></div>}
+                </div>
+
             </div>
         )
     };   

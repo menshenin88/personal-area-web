@@ -48,7 +48,6 @@ class Tracking extends Component {
   ShowTracking =() => {
     return (
       <div>
-        <br/>
         {this.state.trackingnumber.map((n, index) => (
           <ShipmentEntry 
             circleStyleName={n.status} 
@@ -66,7 +65,7 @@ class Tracking extends Component {
 
   addNumberHandler = (data) => {
     this.props.onNumberAdd(data)
-  }
+  };
 
   render(){
       return (
@@ -92,7 +91,7 @@ class Tracking extends Component {
             {this.state.hasBeenSearched ? <this.ShowTracking /> :<div></div>}          
         </div>
     )
-  }
+  };
   
 };
 

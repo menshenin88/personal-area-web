@@ -30,7 +30,7 @@ class Mainarea extends Component{
                     <Container>
                         <Row>
                             <Col md="auto">
-                                <Profile activeKey={location.pathname}/>  
+                                <Profile shipments_length={this.props.myNumbers} activeKey={location.pathname}/>  
                             </Col>
                             <Col sm={8}>
                                 <Switch>

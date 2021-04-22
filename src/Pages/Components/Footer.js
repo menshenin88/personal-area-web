@@ -34,6 +34,6 @@ function Footer(props) {
             </div>
         </footer>
     )
-}
+};
 
 export default Footer

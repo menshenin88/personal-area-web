@@ -19,9 +19,11 @@ class Profile extends Component {
 
     _handleClick(menuItem) { 
         this.setState({ active: menuItem });
+        console.log(this.props.shipments_length.length)
       }
 
     render(){
+        const length = this.props.shipments_length.length
         return (
             <div className='profile_card'>
                 <Card style={{ width: '18rem' }} className="innercard">
@@ -32,13 +34,16 @@ class Profile extends Component {
                     <ListGroup variant="flush">                    
                         {this.state.menuItems.map((key, index) => (
                             <ListGroup.Item key={index}>
-                                <Link 
-                                    to={"/dashboard/" + key.name}
-                                    className={this.state.active === key.name ? "card-link-active" : "card-link"} 
-                                    onClick={this._handleClick.bind(this, key.name)}
-                                > 
-                                    {key.alias}
-                                </Link>
+                                <div className="orders">
+                                    <Link 
+                                        to={"/dashboard/" + key.name}
+                                        className={this.state.active === key.name ? "card-link-active" : "card-link"} 
+                                        onClick={this._handleClick.bind(this, key.name)}
+                                    > 
+                                        {key.alias}
+                                    </Link>
+                                    { key.name === "shipments" && length > 0? <div className="numberCircle"><p>{length}</p></div> : <div></div>}
+                                </div>
                             </ListGroup.Item> 
                         ))}
                     </ListGroup>

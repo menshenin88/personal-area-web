@@ -67,6 +67,6 @@ const MySettings = () => {
             </Form>
         </div>
     );
-}
+};
   
 export default MySettings;
