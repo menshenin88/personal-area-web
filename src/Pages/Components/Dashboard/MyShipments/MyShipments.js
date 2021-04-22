@@ -3,19 +3,20 @@ import './MyShipments.css';
 import ShipmentDescription from '../../Tracking/ShipmentDescription/ShipmentDescription';
 
 class MyShipments extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {onMyShipments: false};
-      }
+    state = {
+        onMyShipments: false
+    };
 
     showNumbers = () => {
-        console.log(this.props.myNumbers.length)
-        console.log(this.props.myNumbers)
+        console.log(this.props.allNumbers.length)
+        console.log(this.props.allNumbers)
     };
 
     deleteNumber = (data) => {
         this.props.deleteNumber(data)
     };
+
+
 
     CheckNumbers = () => {
         if (this.props.myNumbers.length > 0){
@@ -23,7 +24,8 @@ class MyShipments extends Component {
                 <div>
                     {this.props.myNumbers.map((n, index) =>
                         <div key={index} className="shipment-description-wrapper">
-                            <ShipmentDescription 
+                            <ShipmentDescription
+                                details={this.props.allNumbers.filter(e => e.number === n.number)} 
                                 status={n.status}
                                 number={n.number} 
                                 tax={n.tax}
@@ -40,6 +42,7 @@ class MyShipments extends Component {
             <p>У вас нет заказов<button onClick={this.showNumbers}></button></p>
         )
     };
+
     render(){
         return(
             <div className="my-shipments-form">

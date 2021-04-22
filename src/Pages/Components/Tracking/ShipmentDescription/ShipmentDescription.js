@@ -1,9 +1,14 @@
 import './ShipmentDescription.css';
 import Button from 'react-bootstrap/Button'
 import React, { Component } from 'react';
+import ShipmentEntry from '../ShipmentEntry/ShipmentEntry'
 
 
 class ShipmentDescription extends Component {
+    state = {
+        clickForDetails: false
+    }
+
     handleNumberAdd = () => {
         this.props.onNumberAdd(this.props)
     };
@@ -11,6 +16,15 @@ class ShipmentDescription extends Component {
     deleteNumber = () => {
         this.props.deleteNumber(this.props.number)
     }
+
+    showDetails = () => {
+        console.log(this.props.details)
+        if (this.state.clickForDetails) {
+            this.setState({clickForDetails: false})
+        } else {
+            this.setState({clickForDetails: true})
+        }
+    };
 
     statusChecker = (s) => {
         if (s === 'final') {
@@ -21,6 +35,26 @@ class ShipmentDescription extends Component {
             return 'в пути'
         }
     };
+
+    ShowTracking =() => {
+        return (
+          <div>
+            <br/>
+            {this.props.details.map((n, index) => (
+              <ShipmentEntry 
+                circleStyleName={n.status} 
+                styleName={n.status} 
+                status={n.status}
+                key={index} 
+                location={n.location}
+                time={new Intl.DateTimeFormat('ru-RU', { weekday: 'long'}).format(n.time)}
+                day={new Date(n.time).toISOString().slice(0, 10)}
+              />
+            ))}
+          </div>
+        )
+    };
+
     render() {
         return (
             <div className="shipment-description">
@@ -36,10 +70,11 @@ class ShipmentDescription extends Component {
                         <Button onClick={this.deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button>
                     }
                     {!this.props.onSearch ?
-                        <Button onClick={this.deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button> :
+                        <Button onClick={this.showDetails} className="shipment-button delete" variant="primary">Показать детали</Button> :
                         <div></div>
-                    } 
+                    }                   
                 </div>
+                {this.state.clickForDetails ? <this.ShowTracking /> : <div></div>}
             </div>
         )
     };   

@@ -27,7 +27,8 @@ class Tracking extends Component {
       this.setState({
         hasBeenSearched: true,
         trackingnumber: arrayNumber
-      })
+      }
+      )
     } else {
       this.setState({
         hasBeenSearched: false,
@@ -41,7 +42,7 @@ class Tracking extends Component {
           {number: "002", time: new Date('2021-03-01'), location: 'Dudinka', status: '', tax: ''},
           {number: "002", time: new Date('2021-03-01'), location: 'Norilsk', status: 'first', tax: ''}
         ]
-      })}
+      })} 
   };
 
   ShowTracking =() => {
@@ -78,10 +79,13 @@ class Tracking extends Component {
             </InputGroup>
             {this.state.hasBeenSearched ? 
               <ShipmentDescription 
-                onNumberAdd={this.addNumberHandler} 
+                onNumberAdd={this.addNumberHandler}
+                details={this.state.trackingnumber}
+                location={this.state.trackingnumber[0].location}  
                 status={this.state.trackingnumber[0].status} 
                 number={this.state.trackingnumber[0].number}
                 tax={this.state.trackingnumber[0].tax}
+                time={this.state.trackingnumber[0].location} 
                 onSearch={this.state.onSearch}
                 />
             : <div></div>}

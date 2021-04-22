@@ -15,7 +15,8 @@ class App extends Component {
     super(props);
     this.onNumberAdd = this.onNumberAdd.bind(this);
     this.state = {
-      mynumbers:[]
+      mynumbers:[],
+      allnumbers:[]
     }
   }
 
@@ -26,8 +27,22 @@ class App extends Component {
       this.setState(previousState => ({
         mynumbers: [...previousState.mynumbers, {number: num.number, time: num.time, location: num.location, status: num.status, tax: num.tax}]
       }));
-      console.log('Number added!')
+      /*
+      this.setState(previousState => ({
+        allnumbers: [...previousState.allnumbers, {allnumbers:num.details}]
+      }));
+      */
+      num.details.map((n, index) => (
+        this.setState(previousState => ({
+          allnumbers: [...previousState.allnumbers, n]
+        }))
+      ))
+      //this.state.allnumbers.push(num.details)
+      console.log('Number added!')   
     }
+    //this.setState({allnumbers: num.details})
+    console.log(this.state.allnumbers)
+    console.log(this.state.mynumbers)
   };
 
   deleteNumber = (data) => {
@@ -49,11 +64,11 @@ class App extends Component {
                     <Login />
                   </Route>
                   <Route path="/tracking">
-                    <Tracking onNumberAdd={this.onNumberAdd}></Tracking>
+                    <Tracking onNumberAdd={this.onNumberAdd} wholeData={this.addAllData}></Tracking>
                   </Route>
                   <Route path="/dashboard/shipments">
                     <br/>
-                    <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber}/>
+                    <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers}/>
                   </Route>
                 </Switch>       
           </Container>
