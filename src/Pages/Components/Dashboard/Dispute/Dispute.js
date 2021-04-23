@@ -20,7 +20,6 @@ const Dispute = (props) => {
                     <p className="disputetext active">У вас нет закрытых споров</p>
                 </Tab>
             </Tabs>
-
         </div>
     )
 };

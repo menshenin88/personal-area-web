@@ -17,6 +17,10 @@ class Mainarea extends Component{
         location: PropTypes.object.isRequired,
         history: PropTypes.object.isRequired
     };
+
+    componentDidMount() {
+        document.title = 'Profile';
+    };
     
     deleteNumber = (data) => {
         this.props.deleteNumber(data)

@@ -22,6 +22,10 @@ class Tracking extends Component {
     onSearch: true
   };
 
+  componentDidMount() {
+    document.title = 'Tracking';
+  }
+
   TrackingStatusHandler = (event) => {
     if (this.state.trackingnumber.some(e => e.number === event.target.value)) {
       const arrayNumber = this.state.trackingnumber.filter(e => e.number === event.target.value)

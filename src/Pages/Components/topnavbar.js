@@ -22,7 +22,7 @@ class TopNavbar extends React.Component {
         return (
             <div id="app" className="Navbar-container">
                 <Navbar bg="light" expand="xl">
-                    <Navbar.Brand className="logo-container" href="/login">
+                    <Navbar.Brand className="logo-container" as={Link} to="/">
                         <img
                             src={Logo}
                             className="sberlogo"

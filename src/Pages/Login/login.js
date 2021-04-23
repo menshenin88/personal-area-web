@@ -11,7 +11,7 @@ const Login = () => {
                 <div className="auth-inner">
                     <Form className="login-form">
                         <Switch>
-                            <Route exact path="/login">
+                            <Route exact path="/">
                                 <SberIdButton />
                             </Route>
                             <Route exact path="/sign-in">

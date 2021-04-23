@@ -12,7 +12,6 @@ const ShipmentEntry = (props) => {
         }
     };
 
-
     return (
         <div className="shipment-course-entry">
             <div className={`course-left ${ props.styleName }`}>

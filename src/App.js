@@ -51,7 +51,7 @@ class App extends Component {
           <Container fluid="sm" className="maincontainer" >
             <TopNavbar/>
                 <Switch>
-                  <Route exact path="/login">
+                  <Route exact path="/">
                     <Login />
                   </Route>
                   <Route path="/sign-in">
