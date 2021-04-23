@@ -18,6 +18,7 @@ class Tracking extends Component {
       {number: "002", time: new Date('2021-03-01'), location: 'Norilsk', status: 'first', tax: ''}
     ],
     hasBeenSearched: false,
+    searching: false,
     onSearch: true
   };
 
@@ -26,12 +27,20 @@ class Tracking extends Component {
       const arrayNumber = this.state.trackingnumber.filter(e => e.number === event.target.value)
       this.setState({
         hasBeenSearched: true,
+        searching: false,
         trackingnumber: arrayNumber
       }
       )
+    } else if (!this.state.trackingnumber.some(e => e.number === event.target.value) && (event.target.value)){
+      console.log('hi')
+      this.setState({
+        hasBeenSearched: false,
+        searching: true
+      })
     } else {
       this.setState({
         hasBeenSearched: false,
+        searching: false,
         trackingnumber: [
           {number: "001", time: new Date('2021-03-03'), location: 'Moscow', status: 'final', tax: 'paid'},
           {number: "001", time: new Date('2021-03-02'), location: 'Zwenigorod', status: '', tax: 'paid'},
@@ -42,7 +51,7 @@ class Tracking extends Component {
           {number: "002", time: new Date('2021-03-01'), location: 'Dudinka', status: '', tax: ''},
           {number: "002", time: new Date('2021-03-01'), location: 'Norilsk', status: 'first', tax: ''}
         ]
-      })} 
+      })}; 
   };
 
   ShowTracking =() => {
@@ -88,6 +97,7 @@ class Tracking extends Component {
                 onSearch={this.state.onSearch}
                 />
             : <div></div>}
+            {this.state.searching ? <p className="tracking-message">По данному трек-номеру ничего не найдено</p>: <div></div>}
             {this.state.hasBeenSearched ? <this.ShowTracking /> :<div></div>}          
         </div>
     )

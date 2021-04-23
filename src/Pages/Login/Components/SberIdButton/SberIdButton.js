@@ -6,7 +6,7 @@ import {Image} from "react-bootstrap";
 const SberIdButton = () => {
     return (
         <div>
-            <Button variant="success" className="sber-id-button" block href="/sign-in">
+            <Button variant="success" className="sber-id-button" block href="/api/oauth2/authorization/sber-id">
                 <Image src={SberIdLogo} /> Войти по Сбер ID
             </Button>
             <div className="comment">

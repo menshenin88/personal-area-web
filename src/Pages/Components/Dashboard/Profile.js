@@ -13,14 +13,15 @@ class Profile extends Component {
         menuItems: [
             {name:'dispute', alias:'Споры'},
             {name:'settings', alias: 'Настройки'},
-            {name:'shipments', alias: 'Мои заказы'} 
+            {name:'shipments', alias: 'Мои заказы'},
+            {name: 'messages', alias: 'Уведомления'}
         ]
-    }
+    };
 
     _handleClick(menuItem) { 
         this.setState({ active: menuItem });
         console.log(this.props.shipments_length.length)
-      }
+    };
 
     render(){
         const length = this.props.shipments_length.length

@@ -8,7 +8,7 @@ import post_icon from "../../../../Pages/static/post-icon.svg";
 class ShipmentDescription extends Component {
     state = {
         clickForDetails: false
-    }
+    };
 
     handleNumberAdd = () => {
         this.props.onNumberAdd(this.props)
@@ -16,7 +16,7 @@ class ShipmentDescription extends Component {
 
     deleteNumber = () => {
         this.props.deleteNumber(this.props.number)
-    }
+    };
 
     showDetails = () => {
         console.log(this.props.details)

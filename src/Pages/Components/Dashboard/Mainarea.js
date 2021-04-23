@@ -17,9 +17,10 @@ class Mainarea extends Component{
         location: PropTypes.object.isRequired,
         history: PropTypes.object.isRequired
     };
+    
     deleteNumber = (data) => {
         this.props.deleteNumber(data)
-    }
+    };
 
     render(){
         const { location } = this.props;
@@ -55,8 +56,7 @@ class Mainarea extends Component{
             </BrowserRouter>
 
         )
-    }
-    
+    }  
 };
 
 export default withRouter(Mainarea);

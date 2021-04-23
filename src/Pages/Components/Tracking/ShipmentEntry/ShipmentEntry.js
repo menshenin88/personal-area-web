@@ -26,6 +26,6 @@ const ShipmentEntry = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default ShipmentEntry;
