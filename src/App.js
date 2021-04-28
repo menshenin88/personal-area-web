@@ -7,6 +7,7 @@ import Mainarea from './Pages/Components/Dashboard/Mainarea';
 import './Pages/Components/body.css';
 import Tracking from './Pages/Components/Tracking/Tracking'
 import Login from './Pages/Login/login';
+import Terms from './Pages/Login/Components/Terms/Terms'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
@@ -59,6 +60,9 @@ class App extends Component {
                   </Route>
                   <Route path="/tracking">
                     <Tracking onNumberAdd={this.onNumberAdd} wholeData={this.addAllData}></Tracking>
+                  </Route>
+                  <Route path="/terms">
+                    <Terms></Terms>
                   </Route>
                   <Route path="/dashboard/shipments">
                     <br/>

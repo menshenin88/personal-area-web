@@ -22,8 +22,6 @@ const Login = () => {
                 </div>
             </div>
         </Router>
-
-
     );
 };
 
