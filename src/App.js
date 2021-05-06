@@ -78,7 +78,7 @@ class App extends Component {
                   <Route path="/terms">
                     <Terms></Terms>
                   </Route>
-                  <PrivateRoute exact path="/dashboard/shipments" component={Mainarea} myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers} />
+                  <PrivateRoute exact path="/dashboard/shipments" component={() => <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers} />}  />
                   {/* <Route path="/dashboard/shipments">
                     <br/>
                     <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers}/>

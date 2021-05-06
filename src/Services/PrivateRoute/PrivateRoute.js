@@ -8,7 +8,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       render={(props) => {
         console.log(props)
         return sessionStorage.getItem("user") ? (
-          <Component {...props} />
+          <Component {...props} {...rest}/>
         ) : (
           <Redirect to="/" />
         );
