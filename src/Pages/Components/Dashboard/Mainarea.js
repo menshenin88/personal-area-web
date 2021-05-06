@@ -11,6 +11,7 @@ import { withRouter } from "react-router";
 import React, { Component } from 'react';
 import MyShipments from './MyShipments/MyShipments';
 
+
 class Mainarea extends Component{
     static propTypes = {
         match: PropTypes.object.isRequired,
@@ -20,7 +21,7 @@ class Mainarea extends Component{
 
     componentDidMount() {
         document.title = 'Profile';
-    };
+    }
     
     deleteNumber = (data) => {
         this.props.deleteNumber(data)
@@ -34,10 +35,10 @@ class Mainarea extends Component{
                 <div className='main_area'>
                     <Container>
                         <Row>
-                            <Col md="auto">
+                            <Col md="auto" className='column' >
                                 <Profile shipments_length={this.props.myNumbers} activeKey={location.pathname}/>  
                             </Col>
-                            <Col sm={8}>
+                            <Col sm={8} className='column second' >
                                 <Switch>
                                     <Route exact path="/dashboard/dispute">
                                         <Dispute />

@@ -1,3 +1,10 @@
+.profile_card{
+    text-align: center;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
 .innercard.card{
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
@@ -60,7 +67,15 @@
 }
 
 @media only screen and (max-width:768px) {
-    .innercard {
-        padding: 0;
-    }
+    .innercard.card{
+        border: none;
+        border-radius: none;
+        box-shadow: none;
+        margin-bottom: 50px;
+        text-align: center;
+        width: 100% !important;
+        margin-bottom: 0;
+        border-bottom: 10px solid #f8f9fa;
+    };
+
 }

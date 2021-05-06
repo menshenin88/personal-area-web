@@ -5,6 +5,7 @@ import Image from "react-bootstrap/Image"
 import './Profile.css'
 import { Link } from 'react-router-dom';
 import { Component } from 'react';
+import isEmpty from 'lodash.isempty';
 
 
 class Profile extends Component {
@@ -24,12 +25,13 @@ class Profile extends Component {
     };
 
     render(){
-        const length = this.props.shipments_length.length
+        
+        const length = isEmpty(this.props.shipments_length) && this.props.shipments_length.length
         return (
             <div className='profile_card'>
                 <Card style={{ width: '18rem' }} className="innercard">
                     <Image src={user_photo} className="user_photo"/>
-                    <Card.Body>
+                    <Card.Body className='card-body'>
                         <Card.Title className="card_user_name" >Иван Иванов</Card.Title>
                     </Card.Body>
                     <ListGroup variant="flush">                    

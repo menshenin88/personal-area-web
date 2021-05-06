@@ -1,5 +1,3 @@
-import React from 'react';
-
 const userJson = () => {
     return fetch('http://localhost:8080/user')
     .then((response) => response.json())

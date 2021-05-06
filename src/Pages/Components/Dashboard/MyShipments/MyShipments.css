@@ -28,3 +28,14 @@
 .no-orders-message {
     text-align: center;
 }
+
+@media only screen and (max-width:768px) {
+    .my-shipments-form{
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        margin-bottom: 50px;
+        text-align: center;
+
+    };
+}

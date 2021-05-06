@@ -9,12 +9,15 @@ import Tracking from './Pages/Components/Tracking/Tracking'
 import Login from './Pages/Login/login';
 import Terms from './Pages/Login/Components/Terms/Terms'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
+import userJson from './Services/Auth/Auth';
+import PrivateRoute from './Services/PrivateRoute/PrivateRoute';
 
 class App extends Component {
   state = {
       mynumbers:[],
-      allnumbers:[]
+      allnumbers:[],
+      isLogged: false,
+      value: ""
     };
 
   onNumberAdd = (num) => {
@@ -45,6 +48,17 @@ class App extends Component {
     this.setState({allnumbers: alln})
   };
 
+  componentDidMount() {
+    document.title = 'Welcome';
+    userJson();
+    if (sessionStorage.getItem('user')){
+      console.log('sucess');
+      this.setState({isLogged:true})
+    } else {
+      console.log('failed')
+    }
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -64,10 +78,11 @@ class App extends Component {
                   <Route path="/terms">
                     <Terms></Terms>
                   </Route>
-                  <Route path="/dashboard/shipments">
+                  <PrivateRoute exact path="/dashboard/shipments" component={Mainarea} myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers} />
+                  {/* <Route path="/dashboard/shipments">
                     <br/>
                     <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers}/>
-                  </Route>
+                  </Route> */}
                 </Switch>       
           </Container>
           <Footer/>
