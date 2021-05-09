@@ -1,5 +1,5 @@
-import SberIdLogo from "../../../static/sberid-logo.svg";
-import SecureIcon from "../../../static/secure.svg";
+import SberIdLogo from "../../../../static/sberid-logo.svg";
+import SecureIcon from "../../../../static/secure.svg";
 import Button from "react-bootstrap/Button";
 import {Image} from "react-bootstrap";
 import userJson from '../../../../Services/Auth/Auth';

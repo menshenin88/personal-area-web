@@ -2,7 +2,7 @@ import './ShipmentDescription.css';
 import Button from 'react-bootstrap/Button'
 import React, { Component } from 'react';
 import ShipmentEntry from '../ShipmentEntry/ShipmentEntry'
-import post_icon from "../../../../Pages/static/post-icon.svg";
+import post_icon from "../../../static/post-icon.svg";
 
 
 class ShipmentDescription extends Component {

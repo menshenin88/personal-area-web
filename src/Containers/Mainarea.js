@@ -1,15 +1,15 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Profile from './Profile';
-import Dispute from './Dispute/Dispute';
-import MySettings from './MySettings/MySettings';
 import './Mainarea.css';
 import PropTypes from "prop-types";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { withRouter } from "react-router";
 import React, { Component } from 'react';
-import MyShipments from './MyShipments/MyShipments';
+import MyShipments from '../Components/Dashboard/MyShipments/MyShipments';
+import Profile from '../Components/Dashboard/Profile';
+import Dispute from '../Components/Dashboard/Dispute/Dispute';
+import MySettings from '../Components/Dashboard/MySettings/MySettings';
 
 
 class Mainarea extends Component{
@@ -28,7 +28,7 @@ class Mainarea extends Component{
     };
 
     render(){
-        const { location } = this.props;
+        const { location, myNumbers } = this.props;
 
         return (
             <BrowserRouter>
@@ -36,7 +36,7 @@ class Mainarea extends Component{
                     <Container>
                         <Row>
                             <Col md="auto" className='column' >
-                                <Profile shipments_length={this.props.myNumbers} activeKey={location.pathname}/>  
+                                <Profile shipments_length={myNumbers} activeKey={location.pathname}/>  
                             </Col>
                             <Col sm={8} className='column second' >
                                 <Switch>

@@ -6,7 +6,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) => {
-        console.log(props)
         return sessionStorage.getItem("user") ? (
           <Component {...props} {...rest}/>
         ) : (

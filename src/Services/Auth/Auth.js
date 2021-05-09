@@ -5,7 +5,7 @@ const userJson = () => {
         console.log(responseJson);
         console.log(JSON.stringify(responseJson))
         sessionStorage.setItem('user', JSON.stringify(responseJson))
-        console.log(sessionStorage.getItem('user'))
+        console.log(sessionStorage.getItem('user')['name'])
 })
     .catch((error) => {
         console.error(error);

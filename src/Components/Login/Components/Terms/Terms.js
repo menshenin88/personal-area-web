@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import './Terms.css';
 import { Button, Modal, Image, FormCheck } from 'react-bootstrap';
-import SberIdLogo from "../../../static/sberid-logo.svg";
-import SecureIcon from "../../../static/terms.svg";
+import SecureIcon from "../../../../static/terms.svg";
 
 const Terms = (props) => {
     const [show, setShow] = useState(false);

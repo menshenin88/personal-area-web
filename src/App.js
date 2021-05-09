@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import './App.css';
-import TopNavbar from './Pages/Components/topnavbar';
+import TopNavbar from './Components/Topnavbar/Topnavbar';
 import Container from 'react-bootstrap/Container';
-import Footer from './Pages/Components/Footer';
-import Mainarea from './Pages/Components/Dashboard/Mainarea';
-import './Pages/Components/body.css';
-import Tracking from './Pages/Components/Tracking/Tracking'
-import Login from './Pages/Login/login';
-import Terms from './Pages/Login/Components/Terms/Terms'
+import Footer from './Components/Footer/Footer';
+import Mainarea from './Containers/Mainarea';
+import './Components/body.css';
+import Tracking from './Components/Tracking/Tracking'
+import Login from './Components/Login/login';
+import Terms from './Components/Login/Components/Terms/Terms'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import userJson from './Services/Auth/Auth';
 import PrivateRoute from './Services/PrivateRoute/PrivateRoute';
@@ -72,17 +72,9 @@ class App extends Component {
                   <Route path="/sign-in">
                     <Login />
                   </Route>
-                  <Route path="/tracking">
-                    <Tracking onNumberAdd={this.onNumberAdd} wholeData={this.addAllData}></Tracking>
-                  </Route>
-                  <Route path="/terms">
-                    <Terms></Terms>
-                  </Route>
+                  <PrivateRoute exact path="/tracking" component={() => <Tracking onNumberAdd={this.onNumberAdd} wholeData={this.addAllData}/>} /> 
+                  <PrivateRoute exact path="/terms" component={() => <Terms/>}/>
                   <PrivateRoute exact path="/dashboard/shipments" component={() => <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers} />}  />
-                  {/* <Route path="/dashboard/shipments">
-                    <br/>
-                    <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers}/>
-                  </Route> */}
                 </Switch>       
           </Container>
           <Footer/>
