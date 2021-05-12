@@ -3,9 +3,9 @@ import done_photo from "../../../static/done.svg"
 
 const ShipmentEntry = (props) => {
     const statusChecker = (s) => {
-        if (s === 'final') {
+        if (s === 'EMI') {
             return 'Ваша посылка доставлена по адресу'
-        } else if (s === 'first') {
+        } else if (s === 'NEW') {
             return 'Ваша посылка передана в обработку'
         } else {
             return "Ваша посылка находится в пути"

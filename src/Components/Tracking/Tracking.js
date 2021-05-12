@@ -4,6 +4,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import './Tracking.css';
 import ShipmentEntry from './ShipmentEntry/ShipmentEntry';
 import ShipmentDescription from './ShipmentDescription/ShipmentDescription';
+import GetTracking from '../../Services/GetTracking/GetTracking';
 
 class Tracking extends Component {
   state = {
@@ -19,7 +20,8 @@ class Tracking extends Component {
     ],
     hasBeenSearched: false,
     searching: false,
-    onSearch: true
+    onSearch: true,
+    trackingdata: []
   };
 
   componentDidMount() {
@@ -61,15 +63,15 @@ class Tracking extends Component {
   ShowTracking =() => {
     return (
       <div>
-        {this.state.trackingnumber.map((n, index) => (
+        {this.state.trackingdata.trackingHistory.map((n, index) => (
           <ShipmentEntry 
             circleStyleName={n.status} 
             styleName={n.status} 
             status={n.status}
             key={index} 
-            location={n.location}
-            time={new Intl.DateTimeFormat('ru-RU', { weekday: 'long'}).format(n.time)}
-            day={new Date(n.time).toISOString().slice(0, 10)}
+            location={n.opLocation}
+            time={n.opTime}
+            day={n.opTime}
           />
         ))}
       </div>
@@ -80,10 +82,34 @@ class Tracking extends Component {
     this.props.onNumberAdd(data)
   };
 
+  TrackingHandler = (event) => {
+    if (GetTracking(event.target.value)) {
+      const tracking = GetTracking(event.target.value);
+      tracking.then(result => this.setState({
+        trackingdata: result,
+      }))
+      tracking.then(result => {
+        if (result) {
+          this.setState({
+            hasBeenSearched: true,
+            searching: false
+          })
+        }
+      })
+      tracking.then(() => console.log(this.state.trackingdata))
+    } else {
+      this.setState({
+        trackingdata:[],
+        hasBeenSearched: false,
+        searching: true
+      })
+    }
+  };
+
   render(){
       return (
         <div className="tracking_area">
-            <InputGroup className="shipment-input" onChange={event => this.TrackingStatusHandler(event)}>
+            <InputGroup className="shipment-input" onChange={event => {this.TrackingStatusHandler(event); this.TrackingHandler(event)}}>
                 <InputGroup.Prepend>
                     <InputGroup.Text>Введите трек-номер</InputGroup.Text>
                 </InputGroup.Prepend>
@@ -95,14 +121,14 @@ class Tracking extends Component {
                 details={this.state.trackingnumber}
                 location={this.state.trackingnumber[0].location}  
                 status={this.state.trackingnumber[0].status} 
-                number={this.state.trackingnumber[0].number}
+                number={this.state.trackingdata.trackingNumber}
                 tax={this.state.trackingnumber[0].tax}
                 time={this.state.trackingnumber[0].location} 
                 onSearch={this.state.onSearch}
                 />
             : <div></div>}
-            {this.state.searching ? <p className="tracking-message">По данному трек-номеру ничего не найдено</p>: <div></div>}
-            {this.state.hasBeenSearched ? <this.ShowTracking /> :<div></div>}          
+            {!this.state.hasBeenSearched && <p className="tracking-message">По данному трек-номеру ничего не найдено</p>}
+            {this.state.hasBeenSearched && <this.ShowTracking /> }          
         </div>
     )
   };

@@ -17,7 +17,7 @@
 	                              transparent 100%);
 }
 
-.first {
+.NEW {
     background: transparent;
 }
 
@@ -49,6 +49,6 @@
     margin: 0 auto;
 }
 
-.course-left-circle.final {
+.course-left-circle.EMI {
     background: #21a038;
 }

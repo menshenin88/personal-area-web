@@ -3,12 +3,13 @@ import SecureIcon from "../../../../static/secure.svg";
 import Button from "react-bootstrap/Button";
 import {Image} from "react-bootstrap";
 import userJson from '../../../../Services/Auth/Auth';
+import GetTracking from '../../../../Services/GetTracking/GetTracking'
 
 const SberIdButton = () => {
 
     return (
         <div>
-            <Button variant="success" className="sber-id-button" block onClick={userJson}>
+            <Button variant="success" className="sber-id-button" block onClick={GetTracking}>
                 Кликнуть
             </Button>
             <Button variant="success" className="sber-id-button" block href="/oauth2/authorization/sber-id">
