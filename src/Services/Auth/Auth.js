@@ -9,6 +9,7 @@ const userJson = () => {
 })
     .catch((error) => {
         console.error(error);
+        sessionStorage.setItem('user', "hi")
 })};
 
 export default userJson;
