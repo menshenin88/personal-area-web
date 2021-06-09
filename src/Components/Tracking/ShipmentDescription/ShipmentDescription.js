@@ -1,33 +1,38 @@
 import './ShipmentDescription.css';
 import Button from 'react-bootstrap/Button'
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import ShipmentEntry from '../ShipmentEntry/ShipmentEntry'
 import post_icon from "../../../static/post-icon.svg";
+import { useSelector, useDispatch } from 'react-redux'
+import { addNumber, deleteNumber } from '../../../features/tracking/trackingSlice'
 
 
-class ShipmentDescription extends Component {
-    state = {
-        clickForDetails: false
+const ShipmentDescription = (props) => {
+    const [ clickForDetails, setClickForDetails ] = useState(false)
+    const tracking = useSelector((state) => state.tracking.myNumbers)
+    const dispatch = useDispatch()
+   
+    const handleNumberAdd = () => {
+        //props.onNumberAdd(props);
+        dispatch(addNumber(props.details));
+        console.log(props);
+        tracking && console.log(tracking)
     };
 
-    handleNumberAdd = () => {
-        this.props.onNumberAdd(this.props)
+    const deleteNumber = () => {
+        props.deleteNumber(props.number)
     };
 
-    deleteNumber = () => {
-        this.props.deleteNumber(this.props.number)
-    };
-
-    showDetails = () => {
-        console.log(this.props.details)
-        if (this.state.clickForDetails) {
-            this.setState({clickForDetails: false})
+    const showDetails = () => {
+        console.log(props)
+        if (clickForDetails) {
+            setClickForDetails(false)
         } else {
-            this.setState({clickForDetails: true})
+            setClickForDetails(true)
         }
     };
 
-    statusChecker = (s) => {
+    const statusChecker = (s) => {
         if (s === 'final') {
             return 'Доставлено'
         } else if (s === 'first') {
@@ -37,56 +42,65 @@ class ShipmentDescription extends Component {
         }
     };
 
-    ShowTracking =() => {
+    const ShowTracking =() => {
+        console.log(props)
         return (
           <div>
-            {this.props.details.map((n, index) => (
+            {props.details.trackingHistory.map((n, index) => (
               <ShipmentEntry 
                 circleStyleName={n.status} 
                 styleName={n.status} 
                 status={n.status}
                 key={index} 
-                location={n.location}
-                time={new Intl.DateTimeFormat('ru-RU', { weekday: 'long'}).format(n.time)}
-                day={new Date(n.time).toISOString().slice(0, 10)}
+                location={n.opLocation}
+                time={new Date(n.opTime).toLocaleTimeString("ru-RU", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                day={new Date(n.opTime).toLocaleTimeString("ru-RU", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
               />
             ))}
           </div>
         )
     };
 
-    render() {
-        return (
-            <div className="shipment-description">
-                <div>
-                    <div className="icon-wrapper">
-                        <img src={ post_icon } className="icon-green" alt=""/>
-                    </div>
-                    <div className="shipment-description-text">
-                        <p className='shipment-description-number'>Номер Вашей посылки: {this.props.number}</p>
-                        <p className='shipment-description-status'>Текущий статус: {this.statusChecker(this.props.status)}</p>
-                        {this.props.tax !== "paid" ? 
-                            <Button className="shipment-button" variant="primary">Оплатить пошлину</Button> : 
-                            <Button className="shipment-button disabled" variant="primary" disabled>Пошлина оплачена</Button>
-                        }
-                        {this.props.onSearch ? 
-                            <Button onClick={this.handleNumberAdd} className="shipment-button" >Добавить в мои заказы</Button> :
-                            <Button onClick={this.deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button>
-                        }
-                        {!this.props.onSearch ?
-                            <Button onClick={this.showDetails} className="shipment-button delete" variant="primary">{ !this.state.clickForDetails ? "Показать детали" : "Скрыть детали"}</Button> :
-                            <div></div>
-                        }                   
-                    </div>
+    return (
+        <div className="shipment-description">
+            <div>
+                <div className="icon-wrapper">
+                    <img src={ post_icon } className="icon-green" alt=""/>
                 </div>
-
-                <div>
-                    {this.state.clickForDetails ? <this.ShowTracking /> : <div></div>}
+                <div className="shipment-description-text">
+                    <p className='shipment-description-number'>Номер Вашей посылки: {props.number}</p>
+                    <p className='shipment-description-status'>Текущий статус: {statusChecker(props.status)}</p>
+                    {props.tax !== "paid" ? 
+                        <Button className="shipment-button" variant="primary">Оплатить пошлину</Button> : 
+                        <Button className="shipment-button disabled" variant="primary" disabled>Пошлина оплачена</Button>
+                    }
+                    {props.onSearch ? 
+                        <Button onClick={handleNumberAdd} className="shipment-button" >Добавить в мои заказы!</Button> :
+                        <Button onClick={deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button>
+                    }
+                    {!props.onSearch ?
+                        <Button onClick={showDetails} className="shipment-button delete" variant="primary">{ !clickForDetails ? "Показать детали" : "Скрыть детали"}</Button> :
+                        <div></div>
+                    }                   
                 </div>
-
             </div>
-        )
-    };   
+
+            <div>
+                {clickForDetails ? <ShowTracking /> : <div></div>}
+            </div>
+
+        </div>
+    )   
 };
 
 export default ShipmentDescription;

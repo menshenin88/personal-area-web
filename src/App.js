@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Footer from './Components/Footer/Footer';
 import Mainarea from './Containers/Mainarea';
 import './Components/body.css';
-import Tracking from './Containers/Tracking/Tracking'
+import Tracking from './Containers/Tracking/Tracking2'
 import Login from './Components/Login/login';
 import Terms from './Components/Login/Components/Terms/Terms'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';

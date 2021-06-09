@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
 import './MyShipments.css';
 import ShipmentDescription from '../../Tracking/ShipmentDescription/ShipmentDescription';
+import { useSelector, useDispatch } from 'react-redux'
+import { addNumber, deleteNumber } from '../../../features/tracking/trackingSlice'
 
-class MyShipments extends Component {
-    state = {
-        onMyShipments: false
+const MyShipments = (props) => {
+    const myNumbers = useSelector((state) => state.tracking.myNumbers)
+    const dispatch = useDispatch()
+
+    const deleteNumber = (data) => {
+        dispatch(deleteNumber(data))
     };
 
-    deleteNumber = (data) => {
-        this.props.deleteNumber(data)
-    };
-
-    CheckNumbers = () => {
-        if (this.props.myNumbers.length > 0){
+    const CheckNumbers = () => {
+        if (myNumbers.length > 0){
             return (
                 <div>
-                    {this.props.myNumbers.map((n, i) =>
-                        <div key={i} className={(i !== (this.props.myNumbers.length - 1)) ? "shipment-description-wrapper" : "shipment-description-wrapper-last"}>
+                    {myNumbers.map((n, i) =>
+                        <div key={i} className={(i !== (myNumbers.length - 1)) ? "shipment-description-wrapper" : "shipment-description-wrapper-last"}>
                             <ShipmentDescription
-                                details={this.props.allNumbers.filter(e => e.number === n.number)} 
-                                status={n.status}
-                                number={n.number} 
+                                details={n}
+                                location={n.trackingHistory[0].opLocation}
+                                status={n.trackingHistory[0].status}
+                                number={n.trackingNumber}
                                 tax={n.tax}
-                                deleteNumber={this.deleteNumber}
+                                time={n.trackingHistory[0].opTime}
+                                deleteNumber={deleteNumber}
                             />
                         </div>
 
@@ -36,15 +39,14 @@ class MyShipments extends Component {
         )
     };
 
-    render(){
-        return(
-            <div className="my-shipments-form">
-                <h3 className="shipments-header">Мои заказы</h3>
-                <hr className="solid"></hr>
-                <this.CheckNumbers />
-            </div>
-        )
-    };
+    
+    return(
+        <div className="my-shipments-form">
+            <h3 className="shipments-header">Мои заказы</h3>
+            <hr className="solid"></hr>
+            <CheckNumbers />
+        </div>
+    )
 };
 
 export default MyShipments;
