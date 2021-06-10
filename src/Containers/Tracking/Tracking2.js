@@ -6,21 +6,12 @@ import ShipmentDescription from "../../Components/Tracking/ShipmentDescription/S
 import GetTracking from "../../Services/GetTracking/GetTracking";
 import TrackingHistory from "../../Components/Tracking/TrackingHistory/TrackingHistory";
 import debounce from "lodash.debounce";
-import { useSelector, useDispatch } from 'react-redux'
-import { addNumber, deleteNumber } from '../../features/tracking/trackingSlice'
 
 const Tracking = (props) => {
     const [hasBeenSearched, setHasBeenSearched] = useState(false);
     const [searching, setSearching] = useState(false);
     const [onSearch, setOnSearch] = useState(true);
     const [trackingData, setTrackingData] = useState({});
-
-    const trackingNumbers = useSelector((state) => state.tracking.myNumbers)
-    const dispatch = useDispatch()
-
-    const addNumberHandler = (data) => {
-        props.onNumberAdd(data);
-    };
 
     const TrackingHandler = async (event) => {
         if (event.target.value.trim().length > 0) {

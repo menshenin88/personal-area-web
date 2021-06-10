@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { withRouter } from "react-router";
 import React, { Component } from 'react';
 import MyShipments from '../Components/Dashboard/MyShipments/MyShipments';
+import MyMessages from '../Components/Dashboard/MyMessages/MyMessages'
 import Profile from '../Components/Dashboard/Profile';
 import Dispute from '../Components/Dashboard/Dispute/Dispute';
 import MySettings from '../Components/Dashboard/MySettings/MySettings';
@@ -52,6 +53,11 @@ class Mainarea extends Component{
                                 <Switch>
                                     <Route path="/dashboard/shipments">
                                         <MyShipments myNumbers={this.props.myNumbers} deleteNumber={this.deleteNumber} allNumbers={this.props.allNumbers}/>
+                                    </Route>  
+                                </Switch>
+                                <Switch>
+                                    <Route path="/dashboard/messages">
+                                        <MyMessages/>
                                     </Route>  
                                 </Switch>
                             </Col>

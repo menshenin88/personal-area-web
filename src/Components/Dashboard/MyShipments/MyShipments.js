@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './MyShipments.css';
 import ShipmentDescription from '../../Tracking/ShipmentDescription/ShipmentDescription';
 import { useSelector, useDispatch } from 'react-redux'
-import { addNumber, deleteNumber } from '../../../features/tracking/trackingSlice'
 
 const MyShipments = (props) => {
     const myNumbers = useSelector((state) => state.tracking.myNumbers)
@@ -26,6 +25,7 @@ const MyShipments = (props) => {
                                 tax={n.tax}
                                 time={n.trackingHistory[0].opTime}
                                 deleteNumber={deleteNumber}
+                                docs={true}
                             />
                         </div>
 

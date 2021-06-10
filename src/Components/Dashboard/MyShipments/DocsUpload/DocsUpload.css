@@ -1,0 +1,8 @@
+.shipment-button.btn.btn-primary {
+    background: #21a038;
+    color: white;
+    border: none;
+}
+    .disabled{
+        background: #00971c;
+    }

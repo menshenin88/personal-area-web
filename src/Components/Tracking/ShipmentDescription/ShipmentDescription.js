@@ -1,10 +1,11 @@
 import './ShipmentDescription.css';
 import Button from 'react-bootstrap/Button'
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import ShipmentEntry from '../ShipmentEntry/ShipmentEntry'
 import post_icon from "../../../static/post-icon.svg";
 import { useSelector, useDispatch } from 'react-redux'
 import { addNumber, deleteNumber } from '../../../features/tracking/trackingSlice'
+import DocsUpload from '../../../Components/Dashboard/MyShipments/DocsUpload/DocsUpload'
 
 
 const ShipmentDescription = (props) => {
@@ -13,14 +14,14 @@ const ShipmentDescription = (props) => {
     const dispatch = useDispatch()
    
     const handleNumberAdd = () => {
-        //props.onNumberAdd(props);
         dispatch(addNumber(props.details));
         console.log(props);
         tracking && console.log(tracking)
     };
 
-    const deleteNumber = () => {
-        props.deleteNumber(props.number)
+    const removeNumber = () => {
+        console.log(props.details.trackingNumber)
+        dispatch(deleteNumber(props.details.trackingNumber))
     };
 
     const showDetails = () => {
@@ -59,12 +60,6 @@ const ShipmentDescription = (props) => {
                     month: "long",
                     day: "numeric",
                   })}
-                day={new Date(n.opTime).toLocaleTimeString("ru-RU", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
               />
             ))}
           </div>
@@ -86,11 +81,14 @@ const ShipmentDescription = (props) => {
                     }
                     {props.onSearch ? 
                         <Button onClick={handleNumberAdd} className="shipment-button" >Добавить в мои заказы!</Button> :
-                        <Button onClick={deleteNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button>
+                        <Button onClick={removeNumber} className="shipment-button delete" variant="primary">Удалить из заказов</Button>
                     }
                     {!props.onSearch ?
                         <Button onClick={showDetails} className="shipment-button delete" variant="primary">{ !clickForDetails ? "Показать детали" : "Скрыть детали"}</Button> :
                         <div></div>
+                    }
+                    {!props.onSearch &&
+                        <DocsUpload/> 
                     }                   
                 </div>
             </div>

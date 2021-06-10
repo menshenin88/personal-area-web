@@ -1,0 +1,41 @@
+.my-messages-form {
+    position: relative;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 0.5rem;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
+}
+
+.messages-header{
+    text-align: center;
+    color: #21A038; 
+}
+
+.message-description-wrapper{
+    border-bottom: 1px solid #21a038;
+}
+
+.message-description-wrapper-last{
+    border-bottom: none;
+}
+.no-messages-message {
+    text-align: center;
+}
+
+@media only screen and (max-width:768px) {
+    .my-messages-form{
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        margin-bottom: 50px;
+        text-align: center;
+
+    };
+}

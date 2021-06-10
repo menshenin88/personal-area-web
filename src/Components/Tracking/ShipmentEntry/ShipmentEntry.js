@@ -20,7 +20,7 @@ const ShipmentEntry = (props) => {
                 </div>
             </div>
             <div className="course-text">
-                <p className="course-header">{props.location}, {props.time}, {props.day}</p>
+                <p className="course-header">{props.location}, {props.time}</p>
                 <p className="course-status">{statusChecker(props.status)}</p>
             </div>
         </div>

@@ -7,19 +7,13 @@ export const trackingSlice = createSlice({
     },
     reducers: {
         deleteNumber: (state, action) => {
-            state.myNumbers = state.myNumbers.filter(item => item !== action.payload)
+            console.log(state.myNumbers)
+            state.myNumbers = state.myNumbers.filter(item => item.trackingNumber !== action.payload)
         },
         addNumber: (state, action) => {
             state.myNumbers = state.myNumbers.filter(item => item !== action.payload);
             state.myNumbers.push(action.payload)
-        },
-        addNumber: (state, action) => {
-            console.log(state.myNumbers)
-            if (!state.myNumbers.some(item => action.payload.trackingNumber === item.trackingNumber)) {
-                state.myNumbers.push(action.payload)
-        
-            }
-        },
+        }
     },
 })
 

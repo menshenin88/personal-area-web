@@ -1,0 +1,53 @@
+.message-description{
+    overflow: hidden;
+    position: relative;
+}
+
+.icon-green{
+    background: #21a038;
+    width:66%;
+    height:66%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    padding: 9px;
+}
+
+.icon-wrapper {
+    position: relative;
+    width:100px;
+    height: 100px;
+    float: left;
+    background: no-repeat center center;
+}
+
+.message-description-text {
+    overflow: hidden;
+    padding: 0.4rem;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: calc(100% - 100px);
+}
+
+.message-description-text > * {
+    margin: 4px;
+    margin-left: 0px;
+}
+
+.message-description-number {
+    font-weight: 700;
+}
+
+.message-button.btn.btn-primary {
+    background: #21a038;
+    color: white;
+    border: none;
+}
+    .disabled{
+        background: #00971c;
+    }
