@@ -2,15 +2,15 @@ import SberIdLogo from "../../../../static/sberid-logo.svg";
 import SecureIcon from "../../../../static/secure.svg";
 import Button from "react-bootstrap/Button";
 import {Image} from "react-bootstrap";
+import './SberIdButton.css'
 import GetTracking from '../../../../Services/GetTracking/GetTracking'
+import LoginBySMS from './LoginBySMS/LoginBySMS'
 
 const SberIdButton = () => {
 
     return (
         <div>
-            <Button variant="success" className="sber-id-button" block onClick={GetTracking}>
-                Кликнуть
-            </Button>
+            <LoginBySMS />
             <Button variant="success" className="sber-id-button" block href="/oauth2/authorization/sber-id">
                 <Image src={SberIdLogo} /> Войти по Сбер ID
             </Button>
