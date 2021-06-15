@@ -4,6 +4,7 @@ export const trackingSlice = createSlice({
     name: 'tracking',
     initialState: {
         myNumbers: [],
+        termsAccepted: false
     },
     reducers: {
         deleteNumber: (state, action) => {
@@ -13,11 +14,17 @@ export const trackingSlice = createSlice({
         addNumber: (state, action) => {
             state.myNumbers = state.myNumbers.filter(item => item !== action.payload);
             state.myNumbers.push(action.payload)
+        },
+        acceptTerms: (state, action) => {
+            state.termsAccepted = true
+        },
+        declineTerms: (state, action) => {
+            state.termsAccepted = false
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { deleteNumber, addNumber } = trackingSlice.actions
+export const { deleteNumber, addNumber, acceptTerms, declineTerms } = trackingSlice.actions
 
 export default trackingSlice.reducer
