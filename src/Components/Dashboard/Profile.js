@@ -7,7 +7,7 @@ import './Profile.css'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const Profile = (props) => {
+const Profile = () => {
     const [ active, setActive ] = useState('shipments')
     const menuItems = [
             {name:'dispute', alias:'Споры'},
@@ -20,17 +20,14 @@ const Profile = (props) => {
 
     const handleClick = (menuItem) => { 
         setActive(menuItem);
-        console.log(active)
     };
-    console.log(tracking)
-    console.log(tracking.length)
     
     const length = tracking.length
         
     //const length = isEmpty(this.props.shipments_length) && this.props.shipments_length.length
     return (
         <div className='profile_card'>
-            <Card style={{ width: '18rem' }} className="innercard">
+            <Card className="innercard">
                 <Image src={user_photo} className="user_photo"/>
                 <Card.Body className='card-body'>
                     <Card.Title className="card_user_name" >Иван Иванов</Card.Title>
@@ -46,7 +43,7 @@ const Profile = (props) => {
                                 > 
                                     {key.alias}
                                 </Link>
-                                { key.name === "shipments" && length > 0 && <div className="numberCircle"><p>{length}</p></div>}
+                                {key.name === "shipments" && length > 0 && <div className="numberCircle"><p>{length}</p></div>}
                                 {key.name === "messages" && length > 0 && <div className="numberCircle"><p>{length*2}</p></div>}
                                 
                             </div>

@@ -6,6 +6,7 @@ import post_icon from "../../../static/post-icon.svg";
 import { useSelector, useDispatch } from 'react-redux'
 import { addNumber, deleteNumber } from '../../../features/tracking/trackingSlice'
 import DocsUpload from '../../../Components/Dashboard/MyShipments/DocsUpload/DocsUpload'
+import PickUpPoint from '../PickUpPoint/PickUpPoint'
 
 
 const ShipmentDescription = (props) => {
@@ -16,7 +17,6 @@ const ShipmentDescription = (props) => {
     const handleNumberAdd = () => {
         dispatch(addNumber(props.details));
         console.log(props);
-        tracking && console.log(tracking)
     };
 
     const removeNumber = () => {
@@ -25,7 +25,6 @@ const ShipmentDescription = (props) => {
     };
 
     const showDetails = () => {
-        console.log(props)
         if (clickForDetails) {
             setClickForDetails(false)
         } else {
@@ -88,7 +87,10 @@ const ShipmentDescription = (props) => {
                         <div></div>
                     }
                     {!props.onSearch &&
-                        <DocsUpload/> 
+                        <>
+                            <DocsUpload />
+                            <PickUpPoint />
+                        </>
                     }                   
                 </div>
             </div>

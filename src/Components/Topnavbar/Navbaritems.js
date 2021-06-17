@@ -11,7 +11,7 @@ const Navbaritems = (props) => {
                     <Nav.Link as={Link} to="/dashboard/shipments">Мои данные</Nav.Link>
                 </Nav>
                 <Form inline>
-                    <Nav.Link as={Link} to="/" onClick={logOut()}>Выйти</Nav.Link>
+                    <Nav.Link as={Link} to="/" onClick={logOut}>Выйти</Nav.Link>
                 </Form>
             </Navbar.Collapse>
         ) 

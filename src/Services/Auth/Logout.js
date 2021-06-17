@@ -3,9 +3,7 @@ const logOut = () => {
     .then((response) => response.json())
     .then((responseJson) => {      
         console.log(responseJson);
-        if (sessionStorage.getItem('user')) {
-            sessionStorage.removeItem('user')
-        }
+        sessionStorage.removeItem('user')
 })
     .catch((error) => {
         console.error(error);

@@ -69,7 +69,7 @@ class App extends Component {
                   <Route exact path="/">
                     <Login />
                   </Route>
-                  <PrivateRoute exact path="/tracking" component={() => <Tracking onNumberAdd={this.onNumberAdd} wholeData={this.addAllData}/>} /> 
+                  <PrivateRoute path="/tracking" component={() => <Tracking onNumberAdd={this.onNumberAdd} wholeData={this.addAllData}/>} /> 
                   <PrivateRoute exact path="/terms" component={() => <Terms/>}/>
                   <PrivateRoute exact path="/dashboard/shipments" component={() => <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers} />}  />
                 </Switch>       
