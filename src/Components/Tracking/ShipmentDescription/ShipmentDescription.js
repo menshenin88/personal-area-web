@@ -74,9 +74,9 @@ const ShipmentDescription = (props) => {
                 <div className="shipment-description-text">
                     <p className='shipment-description-number'>Номер Вашей посылки: {props.number}</p>
                     <p className='shipment-description-status'>Текущий статус: {statusChecker(props.status)}</p>
-                    {props.tax !== "paid" ? 
-                        <Button className="shipment-button" variant="primary">Оплатить пошлину</Button> : 
-                        <Button className="shipment-button disabled" variant="primary" disabled>Пошлина оплачена</Button>
+                    {props.tax%2===0 ? 
+                        <Button className="shipment-button disabled" variant="primary" disabled>Пошлина оплачена</Button>:
+                        <Button className="shipment-button" variant="primary">Оплатить пошлину</Button> 
                     }
                     {props.onSearch ? 
                         <Button onClick={handleNumberAdd} className="shipment-button" >Добавить в мои заказы!</Button> :

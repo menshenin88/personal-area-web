@@ -21,6 +21,12 @@ const Message = (props) => {
                             <Button className="message-button" variant="primary">Оплатить пошлину</Button>
                         </div>
                     }
+                    {props.type === "tax_paid" &&
+                        <div>
+                            <p className='message-description-text'>Необходимо оплатить пошлину</p>
+                            <Button className="message-button" variant="primary" disabled>Пошлина оплачена</Button>
+                        </div>
+                    }
                     {props.type === "docs" &&
                         <div>
                             <p className='message-description-text'>Необходимо предоставить документы</p>

@@ -11,10 +11,17 @@ const MyShipments = (props) => {
             <hr className="solid"></hr>
             {myNumbers.map((n, i) =>
                 <div key={i} className={(i !== (myNumbers.length - 1)) ? "message-description-wrapper" : "message-description-wrapper-last"}>
-                    <Message
-                        number={n.trackingNumber}
-                        type='tax'
-                    />
+                    <div className="message-description-wrapper">
+                        {i%2 === 0 ?
+                            <Message
+                                number={n.trackingNumber}
+                                type='tax_paid'
+                            />:
+                            <Message
+                                number={n.trackingNumber}
+                                type='tax'
+                            />}
+                    </div>
                     <Message
                         number={n.trackingNumber}
                         type='docs'

@@ -22,7 +22,7 @@ const MyShipments = (props) => {
                                 location={n.trackingHistory[0].opLocation}
                                 status={n.trackingHistory[0].status}
                                 number={n.trackingNumber}
-                                tax={n.tax}
+                                tax={i}
                                 time={n.trackingHistory[0].opTime}
                                 deleteNumber={deleteNumber}
                                 docs={true}
