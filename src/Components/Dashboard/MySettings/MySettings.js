@@ -47,6 +47,60 @@ const MySettings = () => {
                     defaultValue="Иванов"
                     />
                 </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Серия и номер паспорта</Form.Label>
+                    <Form.Control
+                        readOnly
+                        type="text"
+                        placeholder="0000-000000"
+                        defaultValue="1234-123456"
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Код подразделения выдачи</Form.Label>
+                    <Form.Control
+                        readOnly
+                        type="text"
+                        placeholder="000-000"
+                        defaultValue="123-123"
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Дата выдачи документа</Form.Label>
+                    <Form.Control
+                        readOnly
+                        type="text"
+                        placeholder="дд.мм.гггг"
+                        defaultValue="10.11.2012"
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Место в</Form.Label>
+                    <Form.Control
+                        readOnly
+                        type="text"
+                        placeholder="дд.мм.гггг"
+                        defaultValue="10.11.2012"
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>ИНН</Form.Label>
+                    <Form.Control
+                        readOnly
+                        type="text"
+                        placeholder="000000000000"
+                        defaultValue="123456789012"
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Номер телефона</Form.Label>
+                    <Form.Control
+                        readOnly
+                        type="text"
+                        placeholder="+790012345678"
+                        defaultValue="+790012345678"
+                    />
+                </Form.Group>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Ваш email</Form.Label>
                     <Form.Control type="email" placeholder="Введите email" />
