@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
     const [ active, setActive ] = useState('shipments')
     const menuItems = [
-            {name:'dispute', alias:'Споры'},
+            //{name:'dispute', alias:'Споры'},
             {name:'settings', alias: 'Настройки'},
             {name:'shipments', alias: 'Мои заказы'},
             {name: 'messages', alias: 'Уведомления'}
