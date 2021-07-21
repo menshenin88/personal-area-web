@@ -7,7 +7,6 @@ import Config from "../../../../Services/Config.js";
 
 
 const Message = (props) => {
-
     return (
         <div className="message-description">
             <div>
@@ -18,14 +17,14 @@ const Message = (props) => {
                     <p className='message-description-number'>Ваша посылка: {props.number}</p>
                     {props.type === "tax" &&
                         <div>
-                            <p className='message-description-text'>Необходимо оплатить пошлину</p>
-                            <Button className="message-button" variant="primary">Оплатить пошлину</Button>
+                            <p className='message-description-text'>{Config.needPaymentText}</p>
+                            <Button className="message-button" variant="primary">{Config.makePaymentText}</Button>
                         </div>
                     }
                     {props.type === "tax_paid" &&
                         <div>
-                            <p className='message-description-text'>Необходимо оплатить пошлину</p>
-                            <Button className="message-button" variant="primary" disabled>Пошлина оплачена</Button>
+                            <p className='message-description-text'>{Config.needPaymentText}</p>
+                            <Button className="message-button" variant="primary" disabled>{Config.paidText}</Button>
                         </div>
                     }
                     {props.type === "docs" &&

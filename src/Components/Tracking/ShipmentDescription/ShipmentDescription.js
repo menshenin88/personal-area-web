@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addNumber, deleteNumber } from '../../../features/tracking/trackingSlice'
 import DocsUpload from '../../../Components/Dashboard/MyShipments/DocsUpload/DocsUpload'
 import PickUpPoint from '../PickUpPoint/PickUpPoint'
+import Config from "../../../Services/Config";
 
 
 const ShipmentDescription = (props) => {
@@ -79,8 +80,8 @@ const ShipmentDescription = (props) => {
                     <p className='shipment-description-number'>Номер Вашей посылки: {props.number}</p>
                     <p className='shipment-description-status'>Текущий статус: {statusChecker(props.status)}</p>
                     {props.tax%2===0 ? 
-                        <Button className="shipment-button disabled" variant="primary" disabled>Пошлина оплачена</Button>:
-                        <Button className="shipment-button" variant="primary">Оплатить пошлину</Button> 
+                        <Button className="shipment-button disabled" variant="primary" disabled>{Config.paidText}</Button>:
+                        <Button className="shipment-button" variant="primary">{Config.makePaymentText}</Button>
                     }
                     {props.onSearch ? 
                         <Button onClick={handleNumberAdd} className="shipment-button" >Добавить в мои заказы!</Button> :

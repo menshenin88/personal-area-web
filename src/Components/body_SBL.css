@@ -1,3 +1,7 @@
 .maincontainer {
     min-height: calc(100vh - 150px);
 }
+
+img.logo {
+    width: 100% !important;
+}
