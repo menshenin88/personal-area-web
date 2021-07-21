@@ -1,0 +1,15 @@
+.maincontainer {
+    min-height: calc(100vh - 150px);
+}
+
+.icon-green {
+    background: #fff !important;
+}
+
+.numberCircle, .btn {
+    background: #1A5EB8 !important;
+}
+
+.h3 {
+    color: #1A5EB8 !important;
+}

@@ -1,5 +1,4 @@
-.sberlogo{
-    width: 100%;
+.logo{
     height: 50px; /* height of container */
     object-fit: cover;
     object-position: 50% 50%;
@@ -10,7 +9,7 @@
 }
 
 @media only screen and (max-width:768px) {
-    .sberlogo {
+    .logo {
         width: 100%;
     }
     .navbar-brand{

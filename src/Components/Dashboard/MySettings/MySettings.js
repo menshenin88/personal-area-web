@@ -75,12 +75,11 @@ const MySettings = () => {
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
-                    <Form.Label>Место в</Form.Label>
+                    <Form.Label>Орган, выдавший документ</Form.Label>
                     <Form.Control
                         readOnly
                         type="text"
-                        placeholder="дд.мм.гггг"
-                        defaultValue="10.11.2012"
+                        defaultValue="УВД-2 ЦАО г. Москвы"
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
@@ -90,6 +89,15 @@ const MySettings = () => {
                         type="text"
                         placeholder="000000000000"
                         defaultValue="123456789012"
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Адрес доставки</Form.Label>
+                    <Form.Control
+                        readOnly
+                        type="text"
+                        placeholder="000000000000"
+                        defaultValue="295022, Симферополь, Жени Дерюгиной ул, 3"
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">

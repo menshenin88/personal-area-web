@@ -23,7 +23,7 @@ class TopNavbar extends React.Component {
                     <Navbar.Brand className="logo-container" as={Link} to="/">
                         <img
                             src={Logo}
-                            className="sberlogo"
+                            className="logo"
                             alt={process.env.REACT_APP_SITE_NAME}   
                         />
                     </Navbar.Brand>

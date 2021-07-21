@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import React from 'react';
 import message_icon from "../../../../static/message-icon4.svg"
 import DocsUpload from '../../MyShipments/DocsUpload/DocsUpload'
+import Config from "../../../../Services/Config.js";
 
 
 const Message = (props) => {

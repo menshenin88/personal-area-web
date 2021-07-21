@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './App.css';
 import TopNavbar from './Components/Topnavbar/Topnavbar';
 import Container from 'react-bootstrap/Container';
-import Footer from './Components/Footer/Footer';
+import Footer from './Components/Footer/Footer_POST98';
 import Mainarea from './Containers/Mainarea';
 import './Components/body.css';
 import Tracking from './Containers/Tracking/Tracking2'

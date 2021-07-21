@@ -42,6 +42,10 @@ const ShipmentDescription = (props) => {
         }
     };
 
+    const showLocation = (location) => {
+        return location === "https://cfapi.sberlogistics.ru" ? "API" : location;
+    };
+
     const ShowTracking =() => {
         console.log(props)
         return (
@@ -52,7 +56,7 @@ const ShipmentDescription = (props) => {
                 styleName={n.status} 
                 status={n.status}
                 key={index} 
-                location={n.opLocation}
+                location={showLocation(n.opLocation)}
                 time={new Date(n.opTime).toLocaleTimeString("ru-RU", {
                     weekday: "long",
                     year: "numeric",
