@@ -23,14 +23,15 @@ const Profile = () => {
     };
     
     const length = tracking.length
+    let user;
+    user = JSON.parse(sessionStorage.getItem('user'));
         
     //const length = isEmpty(this.props.shipments_length) && this.props.shipments_length.length
     return (
         <div className='profile_card'>
             <Card className="innercard">
-                <Image src={user_photo} className="user_photo"/>
                 <Card.Body className='card-body'>
-                    <Card.Title className="card_user_name" >Иван Иванов</Card.Title>
+                    <Card.Title className="card_user_name" >{user.name}</Card.Title>
                 </Card.Body>
                 <ListGroup variant="flush">                    
                     {menuItems.map((key, index) => (

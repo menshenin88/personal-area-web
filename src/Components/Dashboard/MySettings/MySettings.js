@@ -14,6 +14,8 @@ const MySettings = () => {
   
       setValidated(true);
     };
+
+    let state = JSON.parse(sessionStorage.getItem('user'));
   
     return (
         <div className="settings-form">
@@ -23,95 +25,94 @@ const MySettings = () => {
                 <Form.Group controlId="validationCustom01">
                     <Form.Label>Имя</Form.Label>
                     <Form.Control
-                    readOnly
                     type="text"
-                    placeholder="Иван"
-                    defaultValue="Иван"
+                    placeholder="Имя"
+                    value={state.name}
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
                     <Form.Label>Отчество</Form.Label>
                     <Form.Control
-                    readOnly
                     type="text"
-                    placeholder="Иванович"
-                    defaultValue="Иванович"
+                    placeholder="Отчество"
+                    value={state.patronymic}
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
                     <Form.Label>Фамилия</Form.Label>
                     <Form.Control
-                    readOnly
                     type="text"
-                    placeholder="Иванов"
-                    defaultValue="Иванов"
+                    placeholder="Фамилия"
+                    value={state.lastName}
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
-                    <Form.Label>Серия и номер паспорта</Form.Label>
+                    <Form.Label>Дата рождения</Form.Label>
                     <Form.Control
-                        readOnly
                         type="text"
-                        placeholder="0000-000000"
-                        defaultValue="1234-123456"
+                        placeholder="дд.мм.гггг"
+                        value={state.birthDate}
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Серия паспорта</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="0000"
+                        value={state.docSeries}
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Номер паспорта</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="000000"
+                        value={state.docNumber}
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
                     <Form.Label>Код подразделения выдачи</Form.Label>
                     <Form.Control
-                        readOnly
                         type="text"
                         placeholder="000-000"
-                        defaultValue="123-123"
-                    />
-                </Form.Group>
-                <Form.Group controlId="validationCustom02">
-                    <Form.Label>Дата выдачи документа</Form.Label>
-                    <Form.Control
-                        readOnly
-                        type="text"
-                        placeholder="дд.мм.гггг"
-                        defaultValue="10.11.2012"
+                        value={state.docIssuedByCode}
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
                     <Form.Label>Орган, выдавший документ</Form.Label>
                     <Form.Control
-                        readOnly
                         type="text"
-                        defaultValue="УВД-2 ЦАО г. Москвы"
+                        placeholder="Наименование органа"
+                        value={state.docIssuedBy}
+                    />
+                </Form.Group>
+                <Form.Group controlId="validationCustom02">
+                    <Form.Label>Дата выдачи документа</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="дд.мм.гггг"
+                        value={state.docIssuedDate}
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
                     <Form.Label>ИНН</Form.Label>
                     <Form.Control
-                        readOnly
                         type="text"
                         placeholder="000000000000"
-                        defaultValue="123456789012"
-                    />
-                </Form.Group>
-                <Form.Group controlId="validationCustom02">
-                    <Form.Label>Адрес доставки</Form.Label>
-                    <Form.Control
-                        readOnly
-                        type="text"
-                        placeholder="000000000000"
-                        defaultValue="295022, Симферополь, Жени Дерюгиной ул, 3"
+                        value={state.taxNumber}
                     />
                 </Form.Group>
                 <Form.Group controlId="validationCustom02">
                     <Form.Label>Номер телефона</Form.Label>
                     <Form.Control
-                        readOnly
                         type="text"
                         placeholder="+790012345678"
-                        defaultValue="+790012345678"
+                        value={state.phone}
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Ваш email</Form.Label>
-                    <Form.Control type="email" placeholder="Введите email" />
+                    <Form.Control type="email" placeholder="Введите email" value={state.email} />
                     <Form.Text className="text-muted">
                     Мы никому не передаем Ваши личные данные
                     </Form.Text>

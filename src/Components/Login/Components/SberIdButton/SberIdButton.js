@@ -11,7 +11,7 @@ const SberIdButton = () => {
     return (
         <div>
             <LoginBySMS />
-            <Button variant="success" className="sber-id-button" block href="/oauth2/authorization/sber-id">
+            <Button variant="success" className="sber-id-button" block href="/login/oauth2/authorization/sber-id">
                 <Image src={SberIdLogo} /> Войти по Сбер ID
             </Button>
             <div className="comment">

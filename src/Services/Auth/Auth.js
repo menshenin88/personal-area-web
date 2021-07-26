@@ -1,15 +1,16 @@
-const userJson = () => {
-    return fetch('http://localhost:8080/user')
-    .then((response) => response.json())
-    .then((responseJson) => {      
-        console.log(responseJson);
-        console.log(JSON.stringify(responseJson))
+const userJson = async () => {
+    return await fetch('/user')
+    .then((response) => {
+        if (!response.ok){
+            throw response;
+        }
+        return response.json();
+    })
+    .then((responseJson) => {
         sessionStorage.setItem('user', JSON.stringify(responseJson))
-        console.log(sessionStorage.getItem('user')['name'])
 })
     .catch((error) => {
         console.error(error);
-        sessionStorage.setItem('user', "hi")
 })};
 
 export default userJson;

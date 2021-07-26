@@ -51,11 +51,9 @@ class App extends Component {
   componentDidMount() {
     document.title = 'Welcome';
     userJson();
-    if (sessionStorage.getItem('user')){
-      console.log('sucess');
+    if (sessionStorage.getItem('user') != null){
+      console.log('session is active, user is ' + sessionStorage.getItem('user'));
       this.setState({isLogged:true})
-    } else {
-      console.log('failed')
     }
   }
 
@@ -69,10 +67,10 @@ class App extends Component {
                   <Route exact path="/">
                     <Login />
                   </Route>
-                  <PrivateRoute path="/tracking" component={() => <Tracking onNumberAdd={this.onNumberAdd} wholeData={this.addAllData}/>} /> 
+                  <PrivateRoute path="/tracking" component={() => <Tracking onNumberAdd={this.onNumberAdd} wholeData={this.addAllData}/>} />
                   <PrivateRoute exact path="/terms" component={() => <Terms/>}/>
                   <PrivateRoute exact path="/dashboard/shipments" component={() => <Mainarea myNumbers={this.state.mynumbers} deleteNumber={this.deleteNumber} allNumbers={this.state.allnumbers} />}  />
-                </Switch>       
+                </Switch>
           </Container>
           <Footer/>
         </div>
