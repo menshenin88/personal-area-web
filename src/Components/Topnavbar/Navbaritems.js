@@ -1,4 +1,4 @@
-import { Navbar, Form, Nav } from 'react-bootstrap';
+import { Navbar, Form, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logOut from '../../Services/Auth/Logout'
 
@@ -11,7 +11,8 @@ const Navbaritems = (props) => {
                     <Nav.Link as={Link} to="/dashboard/shipments">Мои данные</Nav.Link>
                 </Nav>
                 <Form inline>
-                    <Nav.Link as={Link} to="/" onClick={logOut}>Выйти</Nav.Link>
+                    {/* переделать кнопку */}
+                    <Button onClick={logOut}>Выйти</Button> 
                 </Form>
             </Navbar.Collapse>
         ) 

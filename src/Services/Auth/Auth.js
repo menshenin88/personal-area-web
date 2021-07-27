@@ -1,16 +1,12 @@
+import { useSelector, useDispatch } from 'react-redux';
+
+
+
 const userJson = async () => {
-    return await fetch('/user')
-    .then((response) => {
-        if (!response.ok){
-            throw response;
-        }
-        return response.json();
-    })
-    .then((responseJson) => {
-        sessionStorage.setItem('user', JSON.stringify(responseJson))
-})
-    .catch((error) => {
-        console.error(error);
-})};
+    const response = await fetch('/user')
+    const data = await response.json()
+    sessionStorage.setItem('user', JSON.stringify(data))
+    return data
+}
 
 export default userJson;

@@ -1,4 +1,6 @@
-const logOut = () => {
+import history from '../../history'
+
+const logOut = async () => {
     return fetch('/logout')
     .then((response) => {
         if (!response.ok){
@@ -8,6 +10,7 @@ const logOut = () => {
     })
     .then((responseJson) => {      
         sessionStorage.removeItem('user')
+        history.push('/')
 })
     .catch((error) => {
         console.error(error);
