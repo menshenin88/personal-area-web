@@ -17,7 +17,7 @@ const Navbaritems = (props) => {
         if (result) {
             dispatch(logged(false))
             console.log('dispatch')
-            history.push('/')
+            //history.push('/')
         }
     }
 
