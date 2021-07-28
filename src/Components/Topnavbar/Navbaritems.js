@@ -1,8 +1,26 @@
 import { Navbar, Form, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logOut from '../../Services/Auth/Logout'
+//import history from '../../history';
+import { useDispatch } from 'react-redux';
+import { logged } from '../../features/tracking/trackingSlice';
+import { useHistory } from "react-router-dom";
+
 
 const Navbaritems = (props) => {
+    const dispatch = useDispatch()
+    let history = useHistory();
+
+    const handleLogout = async () => {
+        const result = await logOut()
+        console.log(result)
+        if (result) {
+            dispatch(logged(false))
+            console.log('dispatch')
+            history.push('/')
+        }
+    }
+
     if (sessionStorage.getItem('user')) {
         return (
             <Navbar.Collapse id="basic-navbar-nav">
@@ -12,7 +30,7 @@ const Navbaritems = (props) => {
                 </Nav>
                 <Form inline>
                     {/* переделать кнопку */}
-                    <Button onClick={logOut}>Выйти</Button> 
+                    <Button onClick={handleLogout}>Выйти</Button> 
                 </Form>
             </Navbar.Collapse>
         ) 

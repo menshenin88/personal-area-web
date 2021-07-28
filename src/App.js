@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import './App.css';
 import TopNavbar from './Components/Topnavbar/Topnavbar';
 import Container from 'react-bootstrap/Container';
@@ -12,46 +12,46 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import userJson from './Services/Auth/Auth';
 import PrivateRoute from './Services/PrivateRoute/PrivateRoute';
 import history from './history';
+import { useSelector, useDispatch } from 'react-redux';
+import { logged } from './features/tracking/trackingSlice'
 
-class App extends Component {
-  state = {
-      mynumbers:[],
-      allnumbers:[],
-      isLogged: false,
-      value: ""
-    };
+const App = () => {
+  const isLogged = useSelector((state) => state.tracking.isLogged)
+  const dispatch = useDispatch()
+  // state = {
+  //     mynumbers:[],
+  //     allnumbers:[],
+  //     isLogged: false,
+  //     value: ""
+  //   };
 
-  componentDidMount() {
-    document.title = 'Welcome';
-    const value = userJson().then(data => this.setState({...this.state, isLogged:true}))
+  useEffect(() => {
+    const value = userJson().then(data => dispatch(logged(true)))
     console.log(value)
-    }
+  }, [])
 
-  render() {
-    console.log(this.state)
-    return (
-      <BrowserRouter history={history}>
-        <div className="wrapper">
-          <Container fluid="sm" className="maincontainer" >
-            <TopNavbar/>
-                <Switch>
-                  <Route exact path="/">
-                    {
-                      this.state.isLogged?
-                        <Redirect to="/dashboard/shipments"  />
-                        :<Login isLogged={this.state.isLogged}/>
-                    } 
-                  </Route>
-                  <PrivateRoute path="/tracking" component={() => <Tracking />} />
-                  <PrivateRoute exact path="/terms" component={() => <Terms/>}/>
-                  <PrivateRoute exact path="/dashboard/shipments" component={() => <Mainarea />}  />
-                </Switch>
-          </Container>
-          <Footer/>
-        </div>
-      </BrowserRouter>
-    );
-  }
-};
+  return (
+    <BrowserRouter history={history}>
+      <div className="wrapper">
+        <Container fluid="sm" className="maincontainer" >
+          <TopNavbar/>
+              <Switch>
+                <Route exact path="/">
+                  {
+                    isLogged?
+                      <Redirect to="/dashboard/shipments"  />
+                      :<Login isLogged={isLogged}/>
+                  } 
+                </Route>
+                <PrivateRoute path="/tracking" component={() => <Tracking />} />
+                <PrivateRoute exact path="/terms" component={() => <Terms/>}/>
+                <PrivateRoute exact path="/dashboard/shipments" component={() => <Mainarea />}  />
+              </Switch>
+        </Container>
+        <Footer/>
+      </div>
+    </BrowserRouter>
+  );
+}
 
 export default App;

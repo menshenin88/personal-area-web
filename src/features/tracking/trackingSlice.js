@@ -108,15 +108,12 @@ export const trackingSlice = createSlice({
         declineTerms: (state, action) => {
             state.termsAccepted = false
         },
-        logUser: (state, action) => {
-            state.isLogged = true
-        },
-        unLogUser: (state, action) => {
-          state.isLogged = false
+        logged: (state, action) => {
+            state.isLogged = action
         }
 }})
 
 // Action creators are generated for each case reducer function
-export const { deleteNumber, addNumber, acceptTerms, declineTerms } = trackingSlice.actions
+export const { deleteNumber, addNumber, acceptTerms, declineTerms, logged } = trackingSlice.actions
 
 export default trackingSlice.reducer
